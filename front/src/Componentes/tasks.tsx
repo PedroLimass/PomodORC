@@ -1,45 +1,76 @@
-import React, {BaseSyntheticEvent, useEffect,useState} from 'react';
-import Modal from 'react-modal';
+import React, { BaseSyntheticEvent, useEffect, useState } from "react";
+import Modal from "react-modal";
 
-function Tasks() {
-   
-const [modalOpen, setOpen] = useState(false);
-const [taskName, setTaskName] = useState("");
-const [taskList, setTaskList] = useState([]);
-const handleChange = (e:BaseSyntheticEvent) => {
-    const {name, value} = e.target;
-    if(name === "taskName"){
-        setTaskName(value);
-    }else{
-    }
+interface ITask {
+  Name: string;
 }
-// const save=(taskObject) =>{
-//   let tempList = taskList;
-//   tempList.push(taskObject);
-//   setTaskList(tempList);
-//   setOpen(false);
-// }
-    return (
+function Tasks() {
+  const [modalOpen, setOpen] = useState(false);
+  const [taskName, setTaskName] = useState("");
+  const [taskList, setTaskList] = useState<ITask[]>([]);
+  // useEffect(() => {
+  //   let arr = localStorage.getItem("taskList");
+  //   if (arr) {
+  //     let obj = JSON.parse(arr);
+  //     setTaskList(obj);
+  //   }
+  // }, []);
+  const handleChange = (e: BaseSyntheticEvent) => {
+    const { name, value } = e.target;
+    if (name === "taskName") {
+      setTaskName(value);
+    } else {
+    }
+  };
+  const save = (taskObject: ITask) => {
+    setTaskList((previousList) => {
+      return [...previousList, taskObject];
+    });
+    console.log(taskList);
+    // localStorage.setItem("taskList", JSON.stringify(taskList));
+    // const teste = localStorage.getItem("taskList");
+    // console.log(teste);
+    setOpen(false);
+  };
+
+  const handleSave = () => {
+    let taskObj: ITask = {
+      Name: taskName,
+    };
+    save(taskObj);
+  };
+  return (
     <div>
       <h1>Tarefas</h1>
-      <button onClick = {()=>{setOpen(true)}}>
-       Informe a tarefa   
+      <button
+        onClick={() => {
+          setOpen(true);
+        }}
+      >
+        Informe a tarefa
       </button>
       <Modal isOpen={modalOpen} contentLabel="New Tasks Modal">
         <h2>Digite a tarefa</h2>
         <form>
-            <div>
-             <label>Nome</label>
-                <input value={taskName} onChange={handleChange} name="taskName"/>
-            </div>
+          <div>
+            <label>Nome</label>
+            <input value={taskName} onChange={handleChange} name="taskName" />
+          </div>
         </form>
-        <button>
-       Criar  
-      </button>
-      <button onClick = {()=>{setOpen(false)}}>
-       Sair 
-      </button>
+        <button onClick={handleSave}>Criar</button>
+        <button
+          onClick={() => {
+            setOpen(false);
+          }}
+        >
+          Sair
+        </button>
       </Modal>
+      <div>
+        {taskList.map((element) => (
+          <li className="tasks">{element.Name}</li>
+        ))}
+      </div>
     </div>
   );
 }
