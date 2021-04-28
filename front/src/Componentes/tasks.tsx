@@ -8,13 +8,13 @@ function Tasks() {
   const [modalOpen, setOpen] = useState(false);
   const [taskName, setTaskName] = useState("");
   const [taskList, setTaskList] = useState<ITask[]>([]);
-  // useEffect(() => {
-  //   let arr = localStorage.getItem("taskList");
-  //   if (arr) {
-  //     let obj = JSON.parse(arr);
-  //     setTaskList(obj);
-  //   }
-  // }, []);
+  useEffect(() => {
+    let arr = localStorage.getItem("taskList");
+    if (arr) {
+      let obj = JSON.parse(arr);
+      setTaskList(obj);
+    }
+  }, []);
   const handleChange = (e: BaseSyntheticEvent) => {
     const { name, value } = e.target;
     if (name === "taskName") {
@@ -23,13 +23,9 @@ function Tasks() {
     }
   };
   const save = (taskObject: ITask) => {
-    setTaskList((previousList) => {
-      return [...previousList, taskObject];
-    });
-    console.log(taskList);
-    // localStorage.setItem("taskList", JSON.stringify(taskList));
-    // const teste = localStorage.getItem("taskList");
-    // console.log(teste);
+    const temp = [...taskList, taskObject];
+    setTaskList([...taskList, taskObject]);
+    localStorage.setItem("taskList", JSON.stringify(temp));
     setOpen(false);
   };
 
@@ -38,6 +34,7 @@ function Tasks() {
       Name: taskName,
     };
     save(taskObj);
+    window.location.reload();
   };
   return (
     <div>
