@@ -32,3 +32,6 @@ Para realizar o trabalho, o gerente do grupo deve realizar um fork para um repos
 |E03|FT06|US15|Eu, como usuário, gostaria de visualizar o meu perfil para que eu possa ver minhas informações.|
 |E03|FT06|US16|Eu, como usuário, gostaria de editar as informações do meu perfil para manter os dados atualizados.|
 |E03|FT06|US17|Eu, como usuário, gostaria de apagar o meu perfil, caso eu não deseje mais utilizar a plataforma.|
+
+## Links
+https://www.figma.com/file/CHPEfv8hjCh7eoPbeTqhn7/PomodOrc?node-id=0%3A1
