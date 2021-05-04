@@ -11,6 +11,7 @@ router.post('/user', userController.createUser);
 //Rotas taskList
 router.post('/taskList', taskListController.createTaskList);
 router.put('/task', taskListController.addTask);
+router.get('/taskLists', taskListController.getByUser);
 
 
 

@@ -1,4 +1,5 @@
 const TaskList = require('../models/taskList.js');
+const User = require('../models/user.js')
 
 import { Request, Response } from 'express';
 
@@ -49,7 +50,22 @@ module.exports = {
             res.status(400).send({ erro: err.message });
         }
 
+    },
+    async getByUser(req: Request, res: Response) {
+
+        try {
+            const GetUser = await User.findOne({ email: req.body.email });
+            if (!GetUser) {
+                res.status(400).send({ erro: 'Usuário não existente' })
+            }
+            const tasklists = await TaskList.find({ user: GetUser.email });
+
+            return res.status(200).send(tasklists);
 
 
+        } catch (err) {
+            res.status(400).send({ erro: err.message });
+
+        }
     }
 }
