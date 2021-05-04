@@ -9,9 +9,9 @@ import { Request, Response, NextFunction } from 'express';
 module.exports = {
     async createUser(req: Request, res: Response) {
         try {
-            const previousUser = await User.findOne({"email": req.body.email})
-            if(previousUser){
-                return res.status(400).send({ error:"ja existe usuario com esse email" })
+            const checkUser = await User.findOne({"email": req.body.email})
+            if(checkUser){
+                return res.status(400).send({ error:"email ja cadastrado" })
             }
 
             const newUser = {
