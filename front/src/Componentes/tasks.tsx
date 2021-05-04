@@ -1,5 +1,7 @@
 import React, { BaseSyntheticEvent, useEffect, useState } from "react";
 import Modal from "react-modal";
+import create from "../../src/create.png";
+import "./tasks.css";
 
 interface ITask {
   Name: string;
@@ -37,38 +39,47 @@ function Tasks() {
     window.location.reload();
   };
   return (
-    <div>
-      <h1>Tarefas</h1>
-      <button
-        onClick={() => {
-          setOpen(true);
-        }}
-      >
-        Informe a tarefa
-      </button>
-      <Modal isOpen={modalOpen} contentLabel="New Tasks Modal">
-        <h2>Digite a tarefa</h2>
-        <form>
-          <div>
-            <label>Nome</label>
-            <input value={taskName} onChange={handleChange} name="taskName" />
-          </div>
-        </form>
-        <button onClick={handleSave}>Criar</button>
-        <button
-          onClick={() => {
-            setOpen(false);
-          }}
-        >
-          Sair
-        </button>
-      </Modal>
-      <div>
-        {taskList.map((element) => (
-          <li className="tasks">{element.Name}</li>
-        ))}
+    <section className="task">
+      <div className="t">
+        <div>
+          <h1 className="titulo">Pomod'Orc</h1>
+        </div>
+        <div>
+          <button
+            onClick={() => {
+              setOpen(true);
+            }}
+            className="adicionar"
+          >
+            <img src={create} alt="create button" />
+          </button>
+        </div>
       </div>
-    </div>
+      <div>
+        <Modal isOpen={modalOpen} contentLabel="New Tasks Modal">
+          <h2>Digite a tarefa</h2>
+          <form>
+            <div>
+              <label>Nome</label>
+              <input value={taskName} onChange={handleChange} name="taskName" />
+            </div>
+          </form>
+          <button onClick={handleSave}>Criar</button>
+          <button
+            onClick={() => {
+              setOpen(false);
+            }}
+          >
+            Sair
+          </button>
+        </Modal>
+        <div className="card">
+          {taskList.map((element) => (
+            <div className="c">{element.Name}</div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
 
