@@ -31,21 +31,27 @@ module.exports = {
 
 
 
+    } ,
+    
+    async getUserByEmail(req: Request, res: Response){
+        try {
+            // console.log({email:req.params.email})
+            const getUserEmail = await User.findOne({"email":req.params.email});
+            if(!getUserEmail){
+                return res.status(400).send({error:"Email não cadastrado"});
+            }
+            // console.log(getUserEmail)
+            return res.status(200).send(getUserEmail);
+        } catch (err) {
+            return res.status(400).send({error: err.message});
+            
+        }
+
     }
+
+
+
+
+
 }
-
-// async function createUser(req: Request, res: Response) {
-//     try {
-
-//         const user = await User.create(req.body);
-
-//         return res.send({ user });
-
-//     } catch (err) {
-//         return res.status(400).send({ error: 'Registration failed' })
-//     }
-
-
-
-// }
 
