@@ -1,4 +1,5 @@
-import React, { BaseSyntheticEvent, useEffect, useState } from "react";
+import React, { BaseSyntheticEvent, useEffect, useState, useContext } from "react";
+import { UserContext } from '../context/userContext';
 import Modal from "react-modal";
 import create from "../../src/create.png";
 import "./tasks.css";
@@ -10,13 +11,18 @@ function Tasks() {
   const [modalOpen, setOpen] = useState(false);
   const [taskName, setTaskName] = useState("");
   const [taskList, setTaskList] = useState<ITask[]>([]);
+  const { user, getUser } = useContext(UserContext);
+
   useEffect(() => {
     let arr = localStorage.getItem("taskList");
     if (arr) {
       let obj = JSON.parse(arr);
       setTaskList(obj);
     }
+    getUser();
   }, []);
+
+
   const handleChange = (e: BaseSyntheticEvent) => {
     const { name, value } = e.target;
     if (name === "taskName") {
@@ -24,6 +30,8 @@ function Tasks() {
     } else {
     }
   };
+
+
   const save = (taskObject: ITask) => {
     const temp = [...taskList, taskObject];
     setTaskList([...taskList, taskObject]);
