@@ -8,6 +8,9 @@ const router = Router();
 // Rotas de usuario
 router.post('/user', userController.createUser);
 router.get('/user/:email', userController.getUserByEmail);
+//Rota para verificar/adicionar o usuario padrão
+router.post('/defaulto',userController.defaultoUser)
+
 
 
 //Rotas taskList
