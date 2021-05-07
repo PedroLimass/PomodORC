@@ -1,10 +1,9 @@
 import React, { createContext, ReactNode, useState } from 'react';
-import api from '../services/api'
+import api from '../services/api';
 interface User {
     _id: string,
     name: string,
     email: string,
-    password: string,
     __v: number,
 }
 interface UserContextData {
@@ -21,21 +20,20 @@ interface UserProviderProps {
 export const UserContext = createContext({} as UserContextData);
 
 export function UserProvider({ children }: UserProviderProps) {
-    const defaultUser = {
+
+
+    const [user, setUser] = useState<any>({
         _id: "Batata",
         name: "Default User",
         email: "defaulto@user.com",
-        password: "Senha",
-        __v: 0
-    };
-    const [user, setUser] = useState(defaultUser);
-
+        __v:0
+    });
     async function getUser() {
         try {
             const email = "defaulto@user.com";
             const response = await api.get(`/user/${email}`)
-            console.log(response);
-            setUser(response.data);
+            // return response.data.user
+            setUser(response.data.user);
         } catch (err) {
             console.error(err);
         }
