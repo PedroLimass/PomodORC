@@ -1,44 +1,54 @@
 import React, { BaseSyntheticEvent, useEffect, useState, useContext } from "react";
+import Modal from "react-modal";
+
 import { UserContext } from '../context/userContext';
 import { TaskListContext } from '../context/taskListContext';
 
-import Modal from "react-modal";
+import List from './list';
 import create from "../../src/create.png";
 import "./tasks.css";
 
-//#region interface
-interface Task {
+// import {Task, TaskList } from '../interfaces.d'
 
-  name: string,
-  status: boolean
 
-}
-interface TaskList {
 
-  _id: string,
-  title: string,
-  user: string,
-  tasks: Task[],
+//#region interfaces
+// interface Task {
 
-}
+//   content: string,
+//   status: boolean
+
+// }
+// interface TaskList {
+
+//   _id: string,
+//   title: string,
+//   user: string,
+//   tasks: Task[],
+
+// }
 //#endregion
 
 
 function Tasks() {
   const [modalOpen, setOpen] = useState(false);
-  const [refresher, setRefresher] = useState(true);
+  // const [refresher, setRefresher] = useState(false);
   const [taskListTitle, setTaskListTitle] = useState("");
   const { user, getUser } = useContext(UserContext);
   const { taskLists, getTaskLists, createTasklist } = useContext(TaskListContext);
 
 
-  function refresh() {
-    setRefresher(!refresh);
-  }
+  // function refresh() {
+  //   setRefresher(!refresh);
+  // }
 
   useEffect(() => {
     getTaskLists();
-  }, [refresher])
+  }, [user])
+
+  // useEffect(() => {
+  //   getTaskLists();
+  // }, [refresher])
 
 
   const handleChange = (e: BaseSyntheticEvent) => {
@@ -50,7 +60,7 @@ function Tasks() {
   };
 
 
-  const save = (taskListObject: TaskList) => {
+  const save = (taskListObject: any) => {
 
     createTasklist(taskListObject);
 
@@ -60,13 +70,14 @@ function Tasks() {
   const handleSave = () => {
     let taskListObj: TaskList = {
       title: taskListTitle,
-      tasks: [],
+      tasks: [] as Task[],
       _id: "Batata",
       user: user.email
     };
     save(taskListObj);
     // window.location.reload();
-    refresh();
+    getUser();
+    // refresh();
 
   };
 
@@ -89,7 +100,7 @@ function Tasks() {
       </div>
       <div>
         <Modal isOpen={modalOpen} contentLabel="New Tasks Modal">
-          <h2>Digite a tarefa</h2>
+          <h2>Adicionar lista de tarefas</h2>
           <form>
             <div>
               <label>Nome</label>
@@ -107,7 +118,14 @@ function Tasks() {
         </Modal>
         <div className="card">
           {taskLists.map((element) => (
-            <div className="c">{element.title}</div>
+            <>
+
+              {/* <div className="c">{element.title}</div> */}
+              {/* {console.log(typeof(element))} */}
+              <List taskList={element} ></List>
+              {/* {console.log(element.tasks)} */}
+            </>
+
           ))}
         </div>
       </div>

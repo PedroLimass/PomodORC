@@ -1,4 +1,3 @@
-const express = require('express');
 const User = require('../models/user');
 // const router = express.Router();
 
@@ -25,7 +24,7 @@ module.exports = {
             return res.send({ user });
 
         } catch (err) {
-            console.log(err.message);
+            // console.log(err.message);
             return res.status(400).send({ error: err.message })
         }
 

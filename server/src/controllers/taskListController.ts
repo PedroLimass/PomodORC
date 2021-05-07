@@ -44,8 +44,12 @@ module.exports = {
             const tasks = [...taskList.tasks, { content: req.body.content, status: false }];
 
             const updatedTaskList = await taskList.update({ tasks: tasks });
+            // const taskList1 = await TaskList.findOne({ title: req.body.title });
 
-            return res.status(200).send(updatedTaskList);
+            // console.log(taskList1.tasks);
+
+
+            return res.status(200).send({ updatedTaskList });
 
 
 
@@ -63,7 +67,7 @@ module.exports = {
             }
             const tasklists = await TaskList.find({ user: GetUser.email });
             // console.log({ tasklists });
-            return res.status(200).send({tasklists});
+            return res.status(200).send({ tasklists });
 
 
         } catch (err) {

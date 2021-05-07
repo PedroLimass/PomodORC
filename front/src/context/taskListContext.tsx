@@ -3,26 +3,27 @@ import api from '../services/api'
 import { UserContext } from './userContext'
 
 
-interface Task {
+// interface Task {
 
-    name: string,
-    status: boolean
+//     name: string,
+//     status: boolean
 
-}
+// }
 
-interface TaskList {
+// interface TaskList {
 
-    _id: string,
-    title: string,
-    user: string,
-    tasks: Task[],
-    // __v: number,
+//     _id: string,
+//     title: string,
+//     user: string,
+//     tasks: Task[],
+//     // __v: number,
 
-}
+// }
 interface TaskListContextData {
     taskLists: TaskList[];
     getTaskLists: () => void;
     createTasklist: (taskList: TaskList) => Promise<void>;
+    addTask: (title: string, content: string) => Promise<void>
 }
 interface TaskListProviderProps {
 
@@ -60,12 +61,25 @@ export function TaskListProvider({ children }: TaskListProviderProps) {
             console.error({ erro: err.message })
         }
     }
+    async function addTask(title: string, content: string) {
+        try {
+            await api.put('/task', {
+                title: title,
+                content: content
+            });
+
+        } catch (err) {
+            console.error({ error: err.message })
+        }
+
+    }
 
     return (
         <TaskListContext.Provider value={{
             taskLists,
             getTaskLists,
             createTasklist,
+            addTask,
         }}>{children}</TaskListContext.Provider>
     )
 }

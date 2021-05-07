@@ -1,0 +1,10 @@
+.c {
+    cursor: pointer;
+}
+
+.listHead{
+    display: flex;
+    justify-content: center;
+    
+}
+
