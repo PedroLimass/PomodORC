@@ -43,6 +43,9 @@ function Tasks() {
   // }
 
   useEffect(() => {
+    if (user.name === "temp") {
+      getUser();
+    }
     getTaskLists();
   }, [user])
 

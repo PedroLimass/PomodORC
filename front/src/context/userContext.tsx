@@ -24,16 +24,19 @@ export function UserProvider({ children }: UserProviderProps) {
 
     const [user, setUser] = useState<any>({
         _id: "Batata",
-        name: "Default User",
+        name: "temp",
         email: "defaulto@user.com",
-        __v:0
+        __v: 0
     });
     async function getUser() {
         try {
-            const email = "defaulto@user.com";
-            const response = await api.get(`/user/${email}`)
-            // return response.data.user
-            setUser(response.data.user);
+            // const email = "defaulto@user.com";
+            // const response = await api.get(`/user/${email}`)
+            if (user.name === "temp") {
+                const response = await api.post('/defaulto');
+                setUser(response.data.user);
+
+            }
         } catch (err) {
             console.error(err);
         }
