@@ -6,7 +6,7 @@ import Modal from "react-modal";
 import create from "../../src/create.png";
 import "./tasks.css";
 
-
+//#region interface
 interface Task {
 
   name: string,
@@ -21,23 +21,30 @@ interface TaskList {
   tasks: Task[],
 
 }
+//#endregion
+
 
 function Tasks() {
   const [modalOpen, setOpen] = useState(false);
-  const [taskName, setTaskName] = useState("");
+  const [refresher, setRefresher] = useState(true);
+  const [taskListTitle, setTaskListTitle] = useState("");
   const { user, getUser } = useContext(UserContext);
   const { taskLists, getTaskLists, createTasklist } = useContext(TaskListContext);
 
 
+  function refresh() {
+    setRefresher(!refresh);
+  }
+
   useEffect(() => {
     getTaskLists();
-  }, [user])
+  }, [refresher])
 
 
   const handleChange = (e: BaseSyntheticEvent) => {
     const { name, value } = e.target;
-    if (name === "taskName") {
-      setTaskName(value);
+    if (name === "taskListTitle") {
+      setTaskListTitle(value);
     } else {
     }
   };
@@ -52,14 +59,15 @@ function Tasks() {
 
   const handleSave = () => {
     let taskListObj: TaskList = {
-      title: taskName,
+      title: taskListTitle,
       tasks: [],
       _id: "Batata",
       user: user.email
     };
     save(taskListObj);
     // window.location.reload();
-    getUser();
+    refresh();
+
   };
 
   return (
@@ -85,7 +93,7 @@ function Tasks() {
           <form>
             <div>
               <label>Nome</label>
-              <input value={taskName} onChange={handleChange} name="taskName" />
+              <input value={taskListTitle} onChange={handleChange} name="taskListTitle" />
             </div>
           </form>
           <button onClick={handleSave}>Criar</button>
