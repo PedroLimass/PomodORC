@@ -1,26 +1,37 @@
 import React, { BaseSyntheticEvent, useEffect, useState, useContext } from "react";
 import { UserContext } from '../context/userContext';
+import { TaskListContext } from '../context/taskListContext';
+
 import Modal from "react-modal";
 import create from "../../src/create.png";
 import "./tasks.css";
 
-interface ITask {
-  Name: string;
+
+interface Task {
+
+  name: string,
+  status: boolean
+
 }
+interface TaskList {
+
+  _id: string,
+  title: string,
+  user: string,
+  tasks: Task[],
+
+}
+
 function Tasks() {
   const [modalOpen, setOpen] = useState(false);
   const [taskName, setTaskName] = useState("");
-  const [taskList, setTaskList] = useState<ITask[]>([]);
   const { user, getUser } = useContext(UserContext);
+  const { taskLists, getTaskLists, createTasklist } = useContext(TaskListContext);
+
 
   useEffect(() => {
-    let arr = localStorage.getItem("taskList");
-    if (arr) {
-      let obj = JSON.parse(arr);
-      setTaskList(obj);
-    }
-    getUser();
-  }, []);
+    getTaskLists();
+  }, [user])
 
 
   const handleChange = (e: BaseSyntheticEvent) => {
@@ -32,20 +43,25 @@ function Tasks() {
   };
 
 
-  const save = (taskObject: ITask) => {
-    const temp = [...taskList, taskObject];
-    setTaskList([...taskList, taskObject]);
-    localStorage.setItem("taskList", JSON.stringify(temp));
+  const save = (taskListObject: TaskList) => {
+
+    createTasklist(taskListObject);
+
     setOpen(false);
   };
 
   const handleSave = () => {
-    let taskObj: ITask = {
-      Name: taskName,
+    let taskListObj: TaskList = {
+      title: taskName,
+      tasks: [],
+      _id: "Batata",
+      user: user.email
     };
-    save(taskObj);
-    window.location.reload();
+    save(taskListObj);
+    // window.location.reload();
+    getUser();
   };
+
   return (
     <section className="task">
       <div className="t">
@@ -82,8 +98,8 @@ function Tasks() {
           </button>
         </Modal>
         <div className="card">
-          {taskList.map((element) => (
-            <div className="c">{element.Name}</div>
+          {taskLists.map((element) => (
+            <div className="c">{element.title}</div>
           ))}
         </div>
       </div>
