@@ -34,8 +34,7 @@
   row-gap: 45px;
 }
 
-.c {
-  background-color: #a5b9ff;
+/* .a {
   height: 160px;
   width: 160px;
   display: flex;
@@ -45,7 +44,46 @@
   font-size: 20px;
   border-radius: 10px;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+  background-color: #a5b9ff;
+} */
+
+.c {
+  height: 160px;
+  width: 160px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  padding: 0 0 20px 20px;
+  font-size: 20px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+  background-color: #a5b9ff;
 }
+
+/* .b {
+  height: 160px;
+  width: 160px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  padding: 0 0 20px 20px;
+  font-size: 20px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+  background-color: #feb0ff;
+} */
+
+/* .c:nth-child(-n + 5) {
+  background-color: #a5b9ff;
+}
+
+.c:nth-child(n + 6) {
+  background-color: #feb0ff;
+}
+
+.c:nth-child(n + 11) {
+  background-color: #ffffe0;
+} */
 
 .task {
   padding: 0px 100px 30px 100px;

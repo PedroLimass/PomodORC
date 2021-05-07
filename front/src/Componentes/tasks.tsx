@@ -8,8 +8,20 @@ interface ITask {
 }
 function Tasks() {
   const [modalOpen, setOpen] = useState(false);
+  // const [estado, setNovoEstado] = useState("a");
   const [taskName, setTaskName] = useState("");
   const [taskList, setTaskList] = useState<ITask[]>([]);
+  // function Estado() {
+  //   if (estado === "a") {
+  //     setNovoEstado("b");
+  //   }
+  //   if (estado === "b") {
+  //     setNovoEstado("c");
+  //   }
+  //   if (estado === "c") {
+  //     setNovoEstado("a");
+  //   }
+  // }
   useEffect(() => {
     let arr = localStorage.getItem("taskList");
     if (arr) {
