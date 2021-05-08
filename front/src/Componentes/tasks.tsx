@@ -8,39 +8,15 @@ import List from './list';
 import create from "../../src/create.png";
 import "./tasks.css";
 
-// import {Task, TaskList } from '../interfaces.d'
-
-
-
-//#region interfaces
-// interface Task {
-
-//   content: string,
-//   status: boolean
-
-// }
-// interface TaskList {
-
-//   _id: string,
-//   title: string,
-//   user: string,
-//   tasks: Task[],
-
-// }
-//#endregion
 
 
 function Tasks() {
   const [modalOpen, setOpen] = useState(false);
-  // const [refresher, setRefresher] = useState(false);
   const [taskListTitle, setTaskListTitle] = useState("");
   const { user, getUser } = useContext(UserContext);
   const { taskLists, getTaskLists, createTasklist } = useContext(TaskListContext);
 
 
-  // function refresh() {
-  //   setRefresher(!refresh);
-  // }
 
   useEffect(() => {
     if (user.name === "temp") {
@@ -49,9 +25,6 @@ function Tasks() {
     getTaskLists();
   }, [user])
 
-  // useEffect(() => {
-  //   getTaskLists();
-  // }, [refresher])
 
 
   const handleChange = (e: BaseSyntheticEvent) => {
@@ -80,7 +53,6 @@ function Tasks() {
     save(taskListObj);
     // window.location.reload();
     getUser();
-    // refresh();
 
   };
 
@@ -120,16 +92,7 @@ function Tasks() {
           </button>
         </Modal>
         <div className="card">
-          {taskLists.map((element) => (
-            <>
-
-              {/* <div className="c">{element.title}</div> */}
-              {/* {console.log(typeof(element))} */}
-              <List taskList={element} ></List>
-              {/* {console.log(element.tasks)} */}
-            </>
-
-          ))}
+          {taskLists.map((element) => (<List taskList={element} ></List>))}
         </div>
       </div>
     </section>

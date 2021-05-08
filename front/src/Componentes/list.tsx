@@ -2,9 +2,7 @@ import React, { useState, BaseSyntheticEvent, useContext } from 'react'
 import Modal from "react-modal";
 import { TaskListContext } from '../context/taskListContext';
 
-
 import './list.css'
-
 
 
 

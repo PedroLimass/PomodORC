@@ -25,7 +25,6 @@ module.exports = {
             return res.send({ user });
 
         } catch (err) {
-            // console.log(err.message);
             return res.status(400).send({ error: err.message })
         }
 
@@ -35,12 +34,10 @@ module.exports = {
 
     async getUserByEmail(req: Request, res: Response) {
         try {
-            // console.log({email:req.params.email})
             const user = await User.findOne({ "email": req.params.email });
             if (!user) {
                 return res.status(400).send({ error: "Email não cadastrado" });
             }
-            // console.log(getUserEmail)
             return res.status(200).send({ user });
         } catch (err) {
             return res.status(400).send({ error: err.message });

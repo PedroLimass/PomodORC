@@ -17,7 +17,6 @@ module.exports = {
                 user: req.body.user
             });
             if (checkTaskList) {
-                // console.log({titulo:checkTaskList.title});
                 return res.status(400).send({ error: "Titulo ja existente" });
             }
             const newTaskList = {
@@ -44,10 +43,6 @@ module.exports = {
             const tasks = [...taskList.tasks, { content: req.body.content, status: false }];
 
             const updatedTaskList = await taskList.update({ tasks: tasks });
-            // const taskList1 = await TaskList.findOne({ title: req.body.title });
-
-            // console.log(taskList1.tasks);
-
 
             return res.status(200).send({ updatedTaskList });
 
@@ -66,7 +61,7 @@ module.exports = {
                 res.status(400).send({ erro: 'Usuário não existente' })
             }
             const tasklists = await TaskList.find({ user: GetUser.email });
-            // console.log({ tasklists });
+
             return res.status(200).send({ tasklists });
 
 
