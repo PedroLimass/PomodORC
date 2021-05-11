@@ -49,6 +49,7 @@ export function TaskListProvider({ children }: TaskListProviderProps) {
         try {
             await api.put('/task', {
                 title: title,
+                user:user.email,
                 content: content
             });
 
