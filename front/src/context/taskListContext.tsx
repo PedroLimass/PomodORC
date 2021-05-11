@@ -3,22 +3,6 @@ import api from '../services/api'
 import { UserContext } from './userContext'
 
 
-// interface Task {
-
-//     name: string,
-//     status: boolean
-
-// }
-
-// interface TaskList {
-
-//     _id: string,
-//     title: string,
-//     user: string,
-//     tasks: Task[],
-//     // __v: number,
-
-// }
 interface TaskListContextData {
     taskLists: TaskList[];
     getTaskLists: () => void;

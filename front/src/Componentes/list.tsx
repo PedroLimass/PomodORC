@@ -35,6 +35,7 @@ function List(props: any,) {
         addTask(taskList.title, newTask);
 
         getTaskLists();
+        setOpenList(true);
 
     }
 

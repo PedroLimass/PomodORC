@@ -35,7 +35,12 @@ module.exports = {
 
     async addTask(req: Request, res: Response) {
         try {
-            const taskList = await TaskList.findOne({ title: req.body.title });
+            const taskList = await TaskList.findOne(
+                {
+                    title: req.body.title,
+                    user: req.body.user
+                });
+
             if (!taskList) {
                 res.status(400).send({ erro: "Lista de tarefas inexistente" });
             }
@@ -53,6 +58,7 @@ module.exports = {
         }
 
     },
+
     async getByUser(req: Request, res: Response) {
 
         try {
