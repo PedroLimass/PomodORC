@@ -17,6 +17,6 @@ router.post('/defaulto',userController.defaultoUser)
 router.post('/taskList', taskListController.createTaskList);
 router.put('/task', taskListController.addTask);
 router.get('/taskLists/:email', taskListController.getByUser);
-
+router.delete('/tasklist/delete/:id', taskListController.deleteTaskList);
 
 export default router;
