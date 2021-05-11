@@ -5,7 +5,7 @@ import { UserContext } from '../context/userContext';
 import { TaskListContext } from '../context/taskListContext';
 
 import List from './list';
-import create from "../../src/create.png";
+import create from "../../src/assets/create.png";
 import "./tasks.css";
 
 

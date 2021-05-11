@@ -1,10 +1,81 @@
+.taskListModal {
+    margin: auto;
+    margin-top: 5rem;
+    align-content: center;
+    max-width: 665px;
+    height: 840px;
+    background-color: #A5B9FF;
+    border-radius: 25px;
+    overflow: scroll;
+    overflow-x: hidden;
+    /* overflow: hidden; */
+    /* overflow:visible; */
+
+}
+
+/* .taskListModal:-webkit-scrollbar {
+    display: none;
+} */
+
+.item {
+    font-size: 56px;
+}
+
 .c {
     cursor: pointer;
 }
 
-.listHead{
-    display: flex;
-    justify-content: center;
-    
+.item {
+    /* padding-left: 50px; */
+    margin-left: 100px;
+    background-color: aqua;
+    width: fit-content;
+    height: fit-content;
+    word-break: break-all;
 }
 
+.item label {
+    /* word-wrap: break-word; */
+}
+
+.top {
+    justify-content: center;
+    display: flex;
+    align-items: start;
+    /* flex-direction: row; */
+}
+
+.top button {
+    background-color: #A5B9FF;
+    border: 0;
+    /* background-color: red; */
+    border-radius: 25px;
+    cursor: pointer;
+    margin-top: 30px;
+}
+
+.top button img {
+    height: 3em;
+}
+
+.top h2 {
+    width: 75%;
+    /* background-color: pink; */
+    font-size: 62px;
+    text-align: center;
+    margin-left: 5rem;
+    word-wrap: break-word;
+    margin-bottom: 30px;
+    /* margin-right: 60px; */
+}
+
+.form {
+    /* align-content: center; */
+    /* justify-content: center; */
+    /* margin-left: 35%; */
+    width: fit-content;
+    height: fit-content;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 15px;
+}

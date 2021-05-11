@@ -1,7 +1,7 @@
 import React, { useState, BaseSyntheticEvent, useContext } from 'react'
 import Modal from "react-modal";
 import { TaskListContext } from '../context/taskListContext';
-
+import close from '../assets/close.png'
 import './list.css'
 
 
@@ -42,29 +42,33 @@ function List(props: any,) {
 
     return (
         <>
-            <div className='c' onClick={change}> {taskList.title}</div>
+            <div className='c' onClick={change}> <p>{taskList.title}</p></div>
 
 
-            <Modal isOpen={openList} >
-                <div className='listHead'>
-                    <h2>{taskList.title}</h2>
+            <Modal className='taskListModal' isOpen={openList} >
+                <div className='list'>
+                    <div className='top'>
+                        <h2>{taskList.title}</h2>
+                        <button onClick={change}>
+                            <img src={close} alt="close button" />
+                        </button>
+                    </div>
 
-                    <button onClick={change}>X</button>
+
+                    <form className='form'>
+                        <input type="text" name='taskAdd' value={inputValue} onChange={handleChangeInput} />
+                        <button onClick={handleSaveInput}>Adicionar</button>
+                    </form>
+
+                    {taskList.tasks.map((item: Task, index: number) => {
+                        return (
+                            <div id={`${index}`} className="item">
+                                <input type="checkbox" name='status' checked={item.status} />
+                                <label htmlFor="status">{item.content}</label>
+                            </div>)
+                    })}
 
                 </div>
-                <form >
-                    <input type="text" name='taskAdd' value={inputValue} onChange={handleChangeInput} />
-                    <button onClick={handleSaveInput}>Adicionar</button>
-                </form>
-
-                {taskList.tasks.map((item: Task, index: number) => {
-                    return <div id={`${index}`} className="item">
-                        <input type="checkbox" name='status' checked={item.status} />
-                        <label htmlFor="status">{item.content}</label>
-                    </div>
-                })}
-
-
             </Modal>
         </>
     )
