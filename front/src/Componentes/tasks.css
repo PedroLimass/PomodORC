@@ -1,6 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
 .titulo {
   font-family: "Lobster", cursive;
+  font-style: normal;
+  font-weight: 400;
   font-size: 72px;
   color: #ffffff;
 }

@@ -2,6 +2,7 @@ import React, { useState, BaseSyntheticEvent, useContext } from 'react'
 import Modal from "react-modal";
 import { TaskListContext } from '../context/taskListContext';
 import close from '../assets/close.png'
+import Addbtn from '../assets/Addbtn.png'
 import './list.css'
 
 
@@ -46,20 +47,20 @@ function List(props: any,) {
 
 
             <Modal className='taskListModal' isOpen={openList} >
-                <div className='list'>
-                    <div className='top'>
-                        <h2>{taskList.title}</h2>
-                        <button onClick={change}>
-                            <img src={close} alt="close button" />
-                        </button>
-                    </div>
+                <div className='top'>
+                    <h2>{taskList.title}</h2>
+                    <button onClick={change}>
+                        <img src={close} alt="close button" />
+                    </button>
+                </div>
 
 
-                    <form className='form'>
-                        <input type="text" name='taskAdd' value={inputValue} onChange={handleChangeInput} />
-                        <button onClick={handleSaveInput}>Adicionar</button>
-                    </form>
+                <form className='form'>
+                    <input type="text" name='taskAdd' value={inputValue} onChange={handleChangeInput} />
+                    <button onClick={handleSaveInput}><img src={Addbtn} alt="Add button" /></button>
+                </form>
 
+                <div className="list">
                     {taskList.tasks.map((item: Task, index: number) => {
                         return (
                             <div id={`${index}`} className="item">
@@ -67,8 +68,9 @@ function List(props: any,) {
                                 <label htmlFor="status">{item.content}</label>
                             </div>)
                     })}
-
                 </div>
+
+
             </Modal>
         </>
     )
