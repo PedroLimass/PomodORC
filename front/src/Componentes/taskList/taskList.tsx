@@ -1,9 +1,9 @@
 import React, { useState, BaseSyntheticEvent, useContext } from 'react'
 import Modal from "react-modal";
-import { TaskListContext } from '../context/taskListContext';
-import close from '../assets/close.png'
-import Addbtn from '../assets/Addbtn.png'
-import './list.css'
+import { TaskListContext } from '../../context/taskListContext';
+import close from '../../assets/close.png'
+import Addbtn from '../../assets/Addbtn.png'
+import './taskList.css'
 
 
 
