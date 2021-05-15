@@ -1,22 +1,20 @@
 import { Router } from 'express';
-const userController = require('../controllers/userController');
 const taskListController = require('../controllers/taskListController');
+const userRoute = require('./userRoute');
+const userController = require('../controllers/userController');
+const taskListRoute = require('./taskListRoute')
 
 
 const router = Router();
 
 // Rotas de usuario
-router.post('/user', userController.createUser);
-router.get('/user/:email', userController.getUserByEmail);
-//Rota para verificar/adicionar o usuario padrão
+router.use('/user', userRoute)
 router.post('/defaulto',userController.defaultoUser)
 
 
-
 //Rotas taskList
-router.post('/taskList', taskListController.createTaskList);
-router.put('/task', taskListController.addTask);
-router.get('/taskLists/:email', taskListController.getByUser);
+router.use('/taskList', taskListRoute)
+
 
 
 export default router;

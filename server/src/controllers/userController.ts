@@ -7,8 +7,9 @@ import { Request, Response, NextFunction } from 'express';
 
 module.exports = {
     async createUser(req: Request, res: Response) {
+        const {email, name, password} = req.body
         try {
-            const checkUser = await User.findOne({ "email": req.body.email })
+            const checkUser = await User.findOne({ "email": email })
             if (checkUser) {
                 return res.status(400).send({ error: "email ja cadastrado" })
             }
@@ -17,9 +18,9 @@ module.exports = {
 
             const user = await User.create(
                 {
-                    "name": req.body.name,
-                    "email": req.body.email,
-                    "password": req.body.password
+                    "name": name,
+                    "email": email,
+                    "password": password
                 });
 
             return res.send({ user });
@@ -33,8 +34,9 @@ module.exports = {
     },
 
     async getUserByEmail(req: Request, res: Response) {
+        const {email} = req.params
         try {
-            const user = await User.findOne({ "email": req.params.email });
+            const user = await User.findOne({ "email": email });
             if (!user) {
                 return res.status(400).send({ error: "Email não cadastrado" });
             }
