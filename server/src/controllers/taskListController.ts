@@ -1,5 +1,5 @@
-const TaskList = require('../models/taskList.ts');
-const User = require('../models/user.ts')
+const TaskList = require('../models/taskList.js');
+const User = require('../models/user.js')
 
 import { Request, Response } from 'express';
 
@@ -32,6 +32,19 @@ module.exports = {
         } catch (err) {
             return res.status(400).send({ error: err.message });
         }
+    },
+    async readTaskList(req: Request, res: Response) {
+        const { id } = req.params;
+        try {
+            const taskList = await TaskList.find({_id:id})
+            if(!taskList){
+                return res.status(404).send({error:"Tasklist not found"});
+            }
+            return res.status(200).send(taskList)
+        } catch (err) {
+            return res.status(400).send({ error: err.message });
+        }
+        
     },
 
     async addTask(req: Request, res: Response) {
@@ -85,19 +98,70 @@ module.exports = {
         const { index, content } = req.body
 
         try {
-            const taskList = await TaskList.findOne({_id:id});
-            if(!taskList){
-                return res.status(404).send({error:'Tasklist não encontrada'})
+            const taskList = await TaskList.findOne({ _id: id });
+            if (!taskList) {
+                return res.status(404).send({ error: 'Tasklist não encontrada' })
             }
             let tasks = taskList.tasks;
             tasks[index].content = content;
-            const result = await taskList.updateOne({tasks:tasks});
-             
+            const result = await taskList.updateOne({ tasks: tasks });
+
             return res.status(200).send(result);
 
         } catch (err) {
-            return res.status(400).send({error: err.message});
+            return res.status(400).send({ error: err.message });
+
+        }
+    },
+    async updateStatus(req: Request, res: Response) {
+
+        const { id } = req.params
+        const { index } = req.body
+
+        try {
+            const taskList = await TaskList.findOne({ _id: id });
+            if (!taskList) {
+                return res.status(404).send({ error: 'Tasklist não encontrada' })
+            }
+            let tasks = taskList.tasks;
+            tasks[index].status = !tasks[index].status;
+            const result = await taskList.updateOne({ tasks: tasks });
+
+            return res.status(200).send(result);
+
+
+        } catch (err) {
+
+            return res.status(400).send({ error: err.message });
+
+        }
+
+
+    },
+
+    async deleteTask(req: Request, res: Response) {
+
+        const { id } = req.params
+        const { index } = req.body
+
+        try {
+            const taskList = await TaskList.findOne({ _id: id });
+            if (!taskList) {
+                return res.status(404).send({ error: 'Tasklist não encontrada' })
+            }
+            let tasks = taskList.tasks;
+            tasks.splice(index, 1);
+            const result = await taskList.updateOne({ tasks: tasks });
+
+            return res.status(200).send(result);
+
+
+        } catch (err) {
+
+            return res.status(400).send({ error: err.message });
 
         }
     }
+
+
 }

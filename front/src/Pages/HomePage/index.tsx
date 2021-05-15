@@ -9,7 +9,7 @@ import "./styles.css";
 
 
 
-function Tasks() {
+function HomePage(props:any) {
     const [modalOpen, setOpen] = useState(false);
     const [taskListTitle, setTaskListTitle] = useState("");
     const { user, getUser } = useContext(UserContext);
@@ -56,6 +56,13 @@ function Tasks() {
 
     };
 
+    const handleListClick = (id:string) => {
+        props.history.push({
+            pathname: `/tasks/${id}`,
+            state: id,
+        })
+    }
+
     return (
         <section className="task">
             <div className="t">
@@ -92,11 +99,11 @@ function Tasks() {
         </button>
                 </Modal>
                 <div className="card">
-                    {taskLists.map((element) => (<List taskList={element} ></List>))}
+                    {taskLists.map((element) => (<List taskList={element} onClick={()=>{handleListClick(element._id)}}></List>))}
                 </div>
             </div>
         </section>
     );
 }
 
-export default Tasks;
+export default HomePage;

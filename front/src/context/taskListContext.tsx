@@ -7,7 +7,10 @@ interface TaskListContextData {
     taskLists: TaskList[];
     getTaskLists: () => void;
     createTasklist: (taskList: TaskList) => Promise<void>;
-    addTask: (title: string, content: string) => Promise<void>
+    addTask: (title: string, content: string) => Promise<void>;
+    updateTask: (id: string, index: number, content: string) => Promise<void>;
+    readTaskList: (id: string) => Promise<void>;
+
 }
 interface TaskListProviderProps {
 
@@ -19,13 +22,16 @@ export const TaskListContext = createContext({} as TaskListContextData);
 
 export function TaskListProvider({ children }: TaskListProviderProps) {
     const [taskLists, setTaskLists] = useState<TaskList[]>([]);
+    const [taskList, setTaskList] = useState<TaskList>();
     const { user } = useContext(UserContext);
 
     async function getTaskLists() {
         try {
             const email = user.email;
-            const response = await api.get(`/taskLists/${email}`);
-            setTaskLists(response.data.tasklists);
+            const response = await api.get(`/taskList/${email}`);
+            const responseData: TaskList[] = response.data.taskList;
+
+            setTaskLists(responseData);
         } catch (err) {
             console.error(err);
         }
@@ -47,11 +53,32 @@ export function TaskListProvider({ children }: TaskListProviderProps) {
     }
     async function addTask(title: string, content: string) {
         try {
-            await api.put('/task', {
+            await api.put('/taskList/task', {
                 title: title,
-                user:user.email,
+                user: user.email,
                 content: content
             });
+
+        } catch (err) {
+            console.error({ error: err.message })
+        }
+
+    }
+    async function updateTask(id: string, index: number, content: string) {
+        try {
+            await api.put(`/taskList/task/${id}`, {
+                index: index,
+                content: content
+            })
+        } catch (err) {
+            console.error({ error: err.message })
+        }
+    }
+
+    async function readTaskList(id: string) {
+        try {
+            const taskList: TaskList = await api.get(`/taskList/${id}`);
+            setTaskList(taskList);
 
         } catch (err) {
             console.error({ error: err.message })
@@ -65,6 +92,8 @@ export function TaskListProvider({ children }: TaskListProviderProps) {
             getTaskLists,
             createTasklist,
             addTask,
+            updateTask,
+            readTaskList,
         }}>{children}</TaskListContext.Provider>
     )
 }

@@ -1,4 +1,4 @@
-const User = require('../models/user.ts');
+const User = require('../models/user.js');
 // const router = express.Router();
 
 import { Request, Response } from 'express';

@@ -1,11 +1,10 @@
-import React, { useState, BaseSyntheticEvent, useContext } from 'react'
+import React, { useState, BaseSyntheticEvent, useContext } from 'react';
 import Modal from "react-modal";
 import { TaskListContext } from '../../context/taskListContext';
-import close from '../../assets/close.png'
-import Addbtn from '../../assets/Addbtn.png'
-import './taskList.css'
-
-
+import close from '../../assets/close.png';
+import Addbtn from '../../assets/Addbtn.png';
+import { Link } from 'react-router-dom';
+import './taskList.css';
 
 function List(props: any,) {
     const [openList, setOpenList] = useState(false)
@@ -43,8 +42,8 @@ function List(props: any,) {
 
     return (
         <>
-            <div className='c' onClick={change}> <p>{taskList.title}</p></div>
 
+        <button className='c' onClick={props.onClick}> <p>{taskList.title}</p></button>
 
             <Modal className='taskListModal' isOpen={openList} >
                 <div className='top'>

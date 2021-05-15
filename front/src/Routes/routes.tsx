@@ -1,13 +1,12 @@
 import { Route, Switch } from 'react-router-dom'
-import Tasks from '../Pages/HomePage'
+import HomePage from '../Pages/HomePage'
+import TasksPage from '../Pages/TasksPage'
 
 const Routes = () => {
     return (
         <Switch>
-            <Route path="/" component={Tasks} exact>
-
-
-            </Route>
+            <Route path="/" component={HomePage} exact />
+            <Route path="/tasks/:id" component={TasksPage} />
         </Switch>
     );
 }

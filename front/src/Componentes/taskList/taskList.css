@@ -25,16 +25,24 @@ input[type=checkbox] {
 
 }
 
-
 .item {
     font-size: 56px;
     font-family: "Lobster", cursive;
     font-weight: 400;
 }
 
+p {
+    color:#000000
+}
+
 .c {
     cursor: pointer;
+    text-decoration: none;
 }
+.textLink {
+    text-decoration: none;
+}
+
 
 .item {
     margin-left: 70px;
