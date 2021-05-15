@@ -1,7 +1,8 @@
 import React from 'react';
 import './App.css';
-import Task from './Componentes/tasks'
-
+// import Task from './Componentes/tasks'
+import Routes from './Routes/routes'
+import { BrowserRouter } from 'react-router-dom'
 
 
 
@@ -10,7 +11,10 @@ function App() {
 
   return (
     <div className="App">
-      <Task />
+      <BrowserRouter>
+        <Routes />
+      </BrowserRouter>
+
     </div>
   );
 }

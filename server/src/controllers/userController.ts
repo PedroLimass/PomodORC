@@ -1,7 +1,7 @@
-const User = require('../models/user');
+const User = require('../models/user.ts');
 // const router = express.Router();
 
-import { Request, Response, NextFunction } from 'express';
+import { Request, Response } from 'express';
 
 
 

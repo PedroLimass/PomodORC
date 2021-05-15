@@ -1,5 +1,5 @@
-const TaskList = require('../models/taskList.js');
-const User = require('../models/user.js')
+const TaskList = require('../models/taskList.ts');
+const User = require('../models/user.ts')
 
 import { Request, Response } from 'express';
 
