@@ -23,7 +23,7 @@ function HomePage(props:any) {
         }
         getTaskLists();
         // eslint-disable-next-line 
-    }, [user])
+    }, [createTasklist])
 
 
 
