@@ -3,7 +3,7 @@ import Modal from "react-modal";
 
 import { UserContext } from '../../context/userContext';
 import { TaskListContext } from '../../context/taskListContext';
-import List from '../../Componentes/taskList/taskList';
+import TaskLists from '../../Componentes/taskList/taskLists';
 import create from '../../assets/create.png'
 import "./styles.css";
 
@@ -99,7 +99,7 @@ function HomePage(props:any) {
         </button>
                 </Modal>
                 <div className="card">
-                    {taskLists.map((element) => (<List taskList={element} onClick={()=>{handleListClick(element._id)}}></List>))}
+                    {taskLists.map((element) => (<TaskLists key={element._id} taskList={element} onClick={()=>{handleListClick(element._id)}}></TaskLists>))}
                 </div>
             </div>
         </section>

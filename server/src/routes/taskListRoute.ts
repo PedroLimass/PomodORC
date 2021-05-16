@@ -10,7 +10,7 @@ router.get('/:email', taskListController.getByUser);
 router.put('/editTitle/:id', taskListController.editTaskListTitle);
 router.put('/task', taskListController.addTask);
 router.put('/task/:id', taskListController.updateTask);
-router.put('/status/:id', taskListController.updateStatus);
+router.put('/task/status/:id', taskListController.updateStatus);
 router.put('/task/delete/:id', taskListController.deleteTask);
 
 module.exports = router;

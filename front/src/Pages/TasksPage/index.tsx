@@ -1,22 +1,25 @@
 import React, { BaseSyntheticEvent, useContext, useEffect, useState } from 'react';
 import Modal from "react-modal";
-// import { useParams } from 'react-router-dom';
 import { TaskListContext } from '../../context/taskListContext';
 import close from '../../assets/close.png';
 import addbtn from '../../assets/Addbtn.png';
 
+import ListItem from '../../Componentes/listItem/listItem';
+
 function TasksPage(props: any) {
-    const { taskList, readTaskList, addTask, editTaskListTitle } = useContext(TaskListContext);
     const id = props.location.state;
+    const { taskList, readTaskList, addTask, editTaskListTitle, updateTaskStatus } = useContext(TaskListContext);
     const [modalOpen, setOpen] = useState(false);
     const [editingTitle, setEditingTitle] = useState(false);
     const [taskContent, setTaskContent] = useState("");
     const [taskTitle, setTaskTitle] = useState('');
+    const [newContent, setNewContent] = useState('');
+
 
     useEffect(() => {
         readTaskList(id);
         // eslint-disable-next-line
-    }, [addTask])
+    }, [addTask, updateTaskStatus])
 
 
     const handleChangeInput = (e: BaseSyntheticEvent) => {
@@ -58,18 +61,28 @@ function TasksPage(props: any) {
 
     }
 
+    const handleCheckBox = (index: number) => {
+        updateTaskStatus(taskList._id, index);
+    }
+
+    const handleBackButton = () => {
+        props.history.push({ pathname: `/`, })
+    }
+
     return (
         <>
             <div className='top'>
+                <button onClick={() => { handleBackButton() }}>Voltar</button>
                 {editingTitle ? (
-                    <> <form>
-                        <input
-                            type="text"
-                            value={taskTitle}
-                            onChange={handleChangeTitle}
-                            placeholder={taskList.title}
-                            name="newTitle" />
-                    </form>
+                    <>
+                        <form>
+                            <input
+                                type="text"
+                                value={taskTitle}
+                                onChange={handleChangeTitle}
+                                placeholder={taskList.title}
+                                name="newTitle" />
+                        </form>
                         <button onClick={handleSaveTitle}>Salvar</button>
                         <button onClick={() => { setEditingTitle(false) }}><img src={close} alt="Close button" /></button>
                     </>
@@ -118,10 +131,14 @@ function TasksPage(props: any) {
             <div className="list">
                 {taskList.tasks && taskList.tasks.map((item: Task, index: number) => {
                     return (
-                        <div id={`${index}`} className="item">
-                            <input type="checkbox" name='status' checked={item.status} />
-                            <label htmlFor="status">{item.content}</label>
-                        </div>)
+                        <>
+                            {/* <div key={index} className="item">
+                                <input type="checkbox" name='status' checked={item.status} onChange={() => { handleCheckBox(index) }} />
+                                <label htmlFor="status">{item.content}</label>
+
+                            </div> */}
+                            <ListItem key={index} index={index} item={item}/>
+                        </>)
                 })}
             </div>
         </>
