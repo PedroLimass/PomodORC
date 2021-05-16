@@ -3,7 +3,6 @@ import Modal from "react-modal";
 import { TaskListContext } from '../../context/taskListContext';
 import close from '../../assets/close.png';
 import Addbtn from '../../assets/Addbtn.png';
-import { Link } from 'react-router-dom';
 import './taskList.css';
 
 function List(props: any,) {

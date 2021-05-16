@@ -11,6 +11,8 @@ interface TaskListContextData {
     addTask: (title: string, content: string) => Promise<void>;
     updateTask: (id: string, index: number, content: string) => Promise<void>;
     readTaskList: (id: string) => Promise<void>;
+    deleteTask: (id: string, index: number) => Promise<void>;
+    editTaskListTitle: (id: string, title: string) => Promise<void>;
 
 }
 interface TaskListProviderProps {
@@ -88,6 +90,30 @@ export function TaskListProvider({ children }: TaskListProviderProps) {
 
     }
 
+    async function deleteTask(id: string, index: number) {
+        try {
+            const response = await api.put(`taskList/task/delete/${id}`, { index: index, });
+            // const tasklist = response.data;
+            setTaskList(response.data as TaskList);
+
+        } catch (err) {
+            console.error({ error: err.message })
+        }
+
+    }
+
+    async function editTaskListTitle(id: string, title: string) {
+        try {
+            const response = await api.put(`taskList/editTitle/${id}`, { title: title });
+            // const tasklist = response.data;
+            setTaskList(response.data as TaskList);
+
+        } catch (err) {
+            console.error({ error: err.message })
+        }
+
+    }
+
     return (
         <TaskListContext.Provider value={{
             taskLists,
@@ -97,6 +123,8 @@ export function TaskListProvider({ children }: TaskListProviderProps) {
             addTask,
             updateTask,
             readTaskList,
+            deleteTask,
+            editTaskListTitle,
         }}>{children}</TaskListContext.Provider>
     )
 }

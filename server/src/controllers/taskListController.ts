@@ -2,6 +2,7 @@ const TaskList = require('../models/taskList.js');
 const User = require('../models/user.js')
 
 import { Request, Response } from 'express';
+import { title } from 'process';
 
 
 interface Task {
@@ -10,7 +11,7 @@ interface Task {
 }
 module.exports = {
     async createTaskList(req: Request, res: Response) {
-        const { title, user } = req.body
+        const { title, user } = req.body;
         try {
 
             const checkTaskList = await TaskList.findOne({
@@ -48,7 +49,7 @@ module.exports = {
     },
 
     async addTask(req: Request, res: Response) {
-        const { title, user, content } = req.body
+        const { title, user, content } = req.body;
         try {
             const taskList = await TaskList.findOne(
                 {
@@ -76,7 +77,7 @@ module.exports = {
 
     async getByUser(req: Request, res: Response) {
 
-        const { email } = req.params
+        const { email } = req.params;
         try {
             const user = await User.findOne({ email: email });
             if (!user) {
@@ -95,8 +96,8 @@ module.exports = {
     },
     async updateTask(req: Request, res: Response) {
 
-        const { id } = req.params
-        const { index, content } = req.body
+        const { id } = req.params;
+        const { index, content } = req.body;
 
         try {
             const taskList = await TaskList.findOne({ _id: id });
@@ -116,8 +117,8 @@ module.exports = {
     },
     async updateStatus(req: Request, res: Response) {
 
-        const { id } = req.params
-        const { index } = req.body
+        const { id } = req.params;
+        const { index } = req.body;
 
         try {
             const taskList = await TaskList.findOne({ _id: id });
@@ -142,8 +143,8 @@ module.exports = {
 
     async deleteTask(req: Request, res: Response) {
 
-        const { id } = req.params
-        const { index } = req.body
+        const { id } = req.params;
+        const { index } = req.body;
 
         try {
             const taskList = await TaskList.findOne({ _id: id });
@@ -162,6 +163,24 @@ module.exports = {
             return res.status(400).send({ error: err.message });
 
         }
+    },
+
+    async editTaskListTitle(req: Request, res: Response) {
+        const { id } = req.params;
+        const { title } = req.body;
+        try {
+            const taskList = await TaskList.findOne({ _id: id });
+            if (!taskList) {
+                return res.status(404).send({ error: 'TaskList not found' });
+            }
+            const response = await taskList.updateOne({title});
+
+            return res.status(200).send({ response });
+        } catch (err) {
+            return res.status(400).send({ error: err.message });
+        }
+
+
     }
 
 
