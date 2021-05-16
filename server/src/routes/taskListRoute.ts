@@ -5,7 +5,7 @@ const router = Router();
 
 //Rotas taskList
 router.post('/', taskListController.createTaskList);
-router.get('/:id', taskListController.readTaskList);
+router.get('read/:id', taskListController.readTaskList);
 router.get('/:email', taskListController.getByUser);
 router.put('/task', taskListController.addTask);
 router.put('/task/:id', taskListController.updateTask);

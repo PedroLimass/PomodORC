@@ -77,7 +77,7 @@ export function TaskListProvider({ children }: TaskListProviderProps) {
 
     async function readTaskList(id: string) {
         try {
-            const taskList: TaskList = await api.get(`/taskList/${id}`);
+            const taskList: TaskList = await api.get(`/read/${id}`);
             setTaskList(taskList);
 
         } catch (err) {

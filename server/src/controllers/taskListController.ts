@@ -36,15 +36,15 @@ module.exports = {
     async readTaskList(req: Request, res: Response) {
         const { id } = req.params;
         try {
-            const taskList = await TaskList.find({_id:id})
-            if(!taskList){
-                return res.status(404).send({error:"Tasklist not found"});
+            const taskList = await TaskList.find({ _id: id })
+            if (!taskList) {
+                return res.status(404).send({ error: "Tasklist not found" });
             }
             return res.status(200).send(taskList)
         } catch (err) {
             return res.status(400).send({ error: err.message });
         }
-        
+
     },
 
     async addTask(req: Request, res: Response) {
@@ -75,13 +75,14 @@ module.exports = {
     },
 
     async getByUser(req: Request, res: Response) {
+
         const { email } = req.params
         try {
-            const GetUser = await User.findOne({ email: email });
-            if (!GetUser) {
+            const user = await User.findOne({ email: email });
+            if (!user) {
                 res.status(400).send({ erro: 'Usuário não existente' })
             }
-            const tasklists = await TaskList.find({ user: GetUser.email });
+            const tasklists = await TaskList.find({ user: user.email });
 
             return res.status(200).send({ taskList: tasklists });
 
