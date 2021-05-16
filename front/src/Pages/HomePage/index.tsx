@@ -9,7 +9,7 @@ import "./styles.css";
 
 
 
-function HomePage(props:any) {
+function HomePage(props: any) {
     const [modalOpen, setOpen] = useState(false);
     const [taskListTitle, setTaskListTitle] = useState("");
     const { user, getUser } = useContext(UserContext);
@@ -22,7 +22,6 @@ function HomePage(props:any) {
             getUser();
         }
         getTaskLists();
-        // eslint-disable-next-line 
     }, [createTasklist])
 
 
@@ -41,6 +40,7 @@ function HomePage(props:any) {
         createTasklist(taskListObject);
 
         setOpen(false);
+        setTaskListTitle('');
     };
 
     const handleSave = () => {
@@ -51,12 +51,11 @@ function HomePage(props:any) {
             user: user.email
         };
         save(taskListObj);
-        // window.location.reload();
         getUser();
 
     };
 
-    const handleListClick = (id:string) => {
+    const handleListClick = (id: string) => {
         props.history.push({
             pathname: `/tasks/${id}`,
             state: id,
@@ -99,7 +98,7 @@ function HomePage(props:any) {
         </button>
                 </Modal>
                 <div className="card">
-                    {taskLists.map((element) => (<TaskLists key={element._id} taskList={element} onClick={()=>{handleListClick(element._id)}}></TaskLists>))}
+                    {taskLists.map((element) => (<TaskLists key={element._id} taskList={element} onClick={() => { handleListClick(element._id) }}></TaskLists>))}
                 </div>
             </div>
         </section>
