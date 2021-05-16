@@ -36,7 +36,7 @@ module.exports = {
     async readTaskList(req: Request, res: Response) {
         const { id } = req.params;
         try {
-            const taskList = await TaskList.find({ _id: id })
+            const taskList = await TaskList.findOne({ _id: id })
             if (!taskList) {
                 return res.status(404).send({ error: "Tasklist not found" });
             }

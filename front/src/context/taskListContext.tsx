@@ -5,6 +5,7 @@ import { UserContext } from './userContext'
 
 interface TaskListContextData {
     taskLists: TaskList[];
+    taskList: any;
     getTaskLists: () => void;
     createTasklist: (taskList: TaskList) => Promise<void>;
     addTask: (title: string, content: string) => Promise<void>;
@@ -22,7 +23,7 @@ export const TaskListContext = createContext({} as TaskListContextData);
 
 export function TaskListProvider({ children }: TaskListProviderProps) {
     const [taskLists, setTaskLists] = useState<TaskList[]>([]);
-    const [taskList, setTaskList] = useState<TaskList>();
+    const [taskList, setTaskList] = useState<TaskList>({} as TaskList);
     const { user } = useContext(UserContext);
 
     async function getTaskLists() {
@@ -77,8 +78,9 @@ export function TaskListProvider({ children }: TaskListProviderProps) {
 
     async function readTaskList(id: string) {
         try {
-            const taskList: TaskList = await api.get(`/read/${id}`);
-            setTaskList(taskList);
+            const response = await api.get(`taskList/read/${id}`);
+            // const tasklist = response.data;
+            setTaskList(response.data as TaskList);
 
         } catch (err) {
             console.error({ error: err.message })
@@ -89,6 +91,7 @@ export function TaskListProvider({ children }: TaskListProviderProps) {
     return (
         <TaskListContext.Provider value={{
             taskLists,
+            taskList,
             getTaskLists,
             createTasklist,
             addTask,
