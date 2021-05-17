@@ -1,11 +1,20 @@
 import React from 'react';
 import './App.css';
-import Tasks from './Componentes/tasks';
+// import Task from './Componentes/tasks'
+import Routes from './Routes/routes'
+import { BrowserRouter } from 'react-router-dom'
+
+
+
 
 function App() {
+
   return (
     <div className="App">
-      <Tasks/>
+      <BrowserRouter>
+        <Routes />
+      </BrowserRouter>
+
     </div>
   );
 }

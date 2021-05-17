@@ -3,10 +3,19 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { UserProvider } from './context/userContext';
+import { TaskListProvider } from './context/taskListContext'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+      <UserProvider>
+        <TaskListProvider>
+
+          <App />
+
+        </TaskListProvider>
+      </UserProvider>
+
   </React.StrictMode>,
   document.getElementById('root')
 );
