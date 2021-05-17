@@ -123,21 +123,11 @@ function TasksPage(props: any) {
                 </Modal>
             </div>
 
-            {/* <form className='form'>
-                <input type="text" name='taskAdd' value={inputValue} onChange={handleChangeInput} />
-                <button onClick={handleSaveInput}><img src={Addbtn} alt="Add button" /></button>
-            </form> */}
-
             <div className="list">
                 {taskList.tasks && taskList.tasks.map((item: Task, index: number) => {
                     return (
                         <>
-                            {/* <div key={index} className="item">
-                                <input type="checkbox" name='status' checked={item.status} onChange={() => { handleCheckBox(index) }} />
-                                <label htmlFor="status">{item.content}</label>
-
-                            </div> */}
-                            <ListItem key={index} index={index} item={item}/>
+                            <ListItem key={index} index={index} item={item} />
                         </>)
                 })}
             </div>
