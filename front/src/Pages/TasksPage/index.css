@@ -1,0 +1,166 @@
+.editar {
+  background-color: #a5b9ff;
+  border: 0;
+  width: 50px;
+  height: 45px;
+  border-radius: 13px;
+  cursor: pointer;
+  padding: 2px;
+  outline: none;
+  cursor: pointer;
+}
+
+.editarTitulo {
+  border: 0;
+  border-radius: 15px;
+  width: 200px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  text-align: start;
+  cursor: pointer;
+  padding: 4px;
+  margin-right: 8px;
+  margin-top: 30px;
+}
+
+.editarT {
+  border-radius: 5%;
+}
+
+.adicionarTarefa {
+  background-color: #a5b9ff;
+  border: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 15px;
+  cursor: pointer;
+  margin: 30px 20px 0px 4px;
+  outline: none;
+  cursor: pointer;
+}
+
+.closeTarefa {
+  background-color: #a5b9ff;
+  border: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 15px;
+  cursor: pointer;
+  margin: 26px 10px 0px 4px;
+  outline: none;
+  cursor: pointer;
+}
+
+.criarTarefa {
+  background-color: #a5b9ff;
+  border: 2px solid #000000;
+  width: 50px;
+  height: 30px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 22px 0px 0px 0px;
+  outline: none;
+  cursor: pointer;
+  padding: 0px 2px 0px 5px;
+}
+
+.salvar {
+  background-color: #a5b9ff;
+  border: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 15px;
+  margin-right: 4px;
+  cursor: pointer;
+  margin-top: 30px;
+  outline: none;
+  cursor: pointer;
+}
+
+.return {
+  background-color: #26242d;
+  border: #26242d;
+  margin-top: 30px;
+  margin-left: 20px;
+  display: flex;
+  justify-content: right;
+  outline: none;
+  cursor: pointer;
+}
+
+.return button {
+  background-color: #26242d;
+  margin-top: 30px;
+  outline: none;
+  cursor: pointer;
+}
+
+.titulo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  margin-top: 12px;
+}
+
+.criarT {
+  border: 0;
+  border-radius: 10px;
+  width: 200px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  text-align: start;
+  cursor: pointer;
+  outline: none;
+  padding: 4px;
+  margin: 5px 10px 0px 0px;
+}
+
+.T {
+  justify-content: space-between;
+  display: flex;
+  align-items: start;
+}
+
+.T h2 {
+  width: 75%;
+  font-size: 62px;
+  text-align: center;
+  word-wrap: break-word;
+  font-family: "Lobster", cursive;
+  font-weight: 300;
+  padding: 8px;
+}
+
+.T button img {
+  height: 2em;
+}
+
+.novaTarefa {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #a5b9ff;
+  color: #000000;
+  width: 500px;
+  height: 400px;
+  border: #a5b9ff;
+  border-radius: 15px;
+  padding: 14px;
+  margin-top: 140px;
+  margin-left: 400px;
+  outline: none;
+  cursor: pointer;
+}
+
+.novaTarefa button img {
+  height: 2em;
+}
+
+.alinharM {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

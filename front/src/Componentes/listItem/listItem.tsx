@@ -4,7 +4,7 @@ import { TaskListContext } from '../../context/taskListContext';
 function ListItem(props: any) {
     const { index, item } = props;
 
-    const { taskList, readTaskList, addTask, editTaskListTitle, updateTaskStatus } = useContext(TaskListContext);
+    const { taskList, updateTaskStatus } = useContext(TaskListContext);
 
     const handleCheckBox = (index: number) => {
         updateTaskStatus(taskList._id, index);

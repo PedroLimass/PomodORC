@@ -1,39 +1,105 @@
 @import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
 .titulo {
-    font-family: "Lobster", cursive;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 72px;
-    color: #ffffff;
+  font-family: "Lobster", cursive;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 72px;
+  color: #ffffff;
 }
 
 .t {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    height: 30vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 30vh;
 }
 
-.adicionar {
-    background-color: #26242d;
-    border: 1px solid #4e466a;
-    width: 90px;
-    height: 60px;
-    border-radius: 12%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    outline: none;
-    cursor: pointer;
+.adicionarLista {
+  background-color: #26242d;
+  border: 1px solid #4e466a;
+  width: 90px;
+  height: 60px;
+  border-radius: 12%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  cursor: pointer;
+}
+
+.salvarLista {
+  background-color: #a5b9ff;
+  border: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 15px;
+  margin-right: 4px;
+  cursor: pointer;
+  margin-top: 30px;
+  outline: none;
+  cursor: pointer;
+}
+
+.novaLista button img {
+  height: 2em;
+}
+
+.novaLista button img {
+  height: 2em;
+}
+
+.fecharNovaLista {
+  background-color: #a5b9ff;
+  border: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 15px;
+  cursor: pointer;
+  margin: 28px 10px 0px 4px;
+  outline: none;
+  cursor: pointer;
+}
+
+.nomeTarefa {
+  border: 0;
+  border-radius: 10px;
+  width: 200px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  text-align: start;
+  cursor: pointer;
+  outline: none;
+  padding: 4px;
+  margin: 5px 10px 0px 0px;
+}
+
+.novaLista {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #a5b9ff;
+  color: #000000;
+  width: 500px;
+  height: 400px;
+  border: #a5b9ff;
+  border-radius: 15px;
+  padding: 14px;
+  margin-top: 140px;
+  margin-left: 400px;
+  outline: none;
+  cursor: pointer;
 }
 
 .card {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    font-family: "Lobster", cursive;
-    column-gap: 45px;
-    row-gap: 45px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  font-family: "Lobster", cursive;
+  column-gap: 45px;
+  row-gap: 45px;
+  outline: none;
+  cursor: pointer;
 }
 
 /* .a {
@@ -54,17 +120,17 @@
 } */
 
 .c {
-    height: 160px;
-    width: 160px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-end;
-    padding: 0 0 20px 20px;
-    font-size: 20px;
-    border-radius: 10px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
-    background-color: #a5b9ff;
-    word-break: break-all;
+  height: 160px;
+  width: 160px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  padding: 0 0 20px 20px;
+  font-size: 20px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+  background-color: #a5b9ff;
+  word-break: break-all;
 }
 
 /* .c p {
@@ -99,9 +165,9 @@
 } */
 
 .task {
-    padding: 0px 100px 30px 100px;
+  padding: 0px 100px 30px 100px;
 }
 
 body {
-    background-color: #26242d;
+  background-color: #26242d;
 }
