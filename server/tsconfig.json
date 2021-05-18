@@ -12,6 +12,6 @@
     "noImplicitAny": true,
     "resolveJsonModule": true
   },
-  "include": ["src/**/*.ts"],
+  "include": ["src/**/*.ts", "src/models/user.js", "src/models/taskList.js"],
   "exclude": ["node_modules"],
 }
