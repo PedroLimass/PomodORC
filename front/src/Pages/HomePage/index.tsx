@@ -1,6 +1,5 @@
 import React, { BaseSyntheticEvent, useEffect, useState, useContext } from "react";
 import Modal from "react-modal";
-
 import { UserContext } from '../../context/userContext';
 import { TaskListContext } from '../../context/taskListContext';
 import TaskLists from '../../Componentes/taskList/taskLists';
@@ -36,9 +35,8 @@ function HomePage(props: any) {
 
 
     const save = (taskListObject: any) => {
-
+        console.log(taskListObject);
         createTasklist(taskListObject);
-
         setOpen(false);
         setTaskListTitle('');
     };
@@ -50,6 +48,7 @@ function HomePage(props: any) {
             _id: "Batata",
             user: user.email
         };
+        console.log("entrou");
         save(taskListObj);
         getUser();
 

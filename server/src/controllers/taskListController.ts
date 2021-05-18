@@ -18,7 +18,8 @@ module.exports = {
                 title,
                 user
             });
-            if (checkTaskList) {
+
+            if (!checkTaskList) {
                 return res.status(400).send({ error: "Titulo ja existente" });
             }
 
