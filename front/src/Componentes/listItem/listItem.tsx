@@ -6,7 +6,7 @@ function ListItem(props: any) {
 
     const [taskContent, setTaskContent] = useState("");
     const [editingContent, setEditingContent] = useState(false);
-    const { taskList, readTaskList, addTask, editTaskListTitle, updateTaskStatus, updateTask } = useContext(TaskListContext);
+    const { taskList, readTaskList, addTask, editTaskListTitle, updateTaskStatus, updateTask , deleteTask} = useContext(TaskListContext);
 
     const handleCheckBox = (index: number) => {
         updateTaskStatus(taskList._id, index);
@@ -33,6 +33,11 @@ function ListItem(props: any) {
 
     }
 
+    const handleDeleteButton = () => {
+        deleteTask(taskList._id, index)
+
+    }
+
     return (
         <div className="item">
             <input type="checkbox" name='status' checked={item.status} onChange={() => { handleCheckBox(index) }} />
@@ -54,6 +59,7 @@ function ListItem(props: any) {
                 <>
                     <label htmlFor="status">{item.content}</label>
                     <button onClick={() => { clickHandle() }}>Editar</button>
+                    <button onClick={() => { handleDeleteButton() }}>Excluir</button>
 
                 </>
             )

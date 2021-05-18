@@ -8,12 +8,13 @@ import ListItem from '../../Componentes/listItem/listItem';
 
 function TasksPage(props: any) {
     const id = props.location.state;
-    const { taskList, readTaskList, addTask, editTaskListTitle, updateTaskStatus } = useContext(TaskListContext);
+    const { taskList, readTaskList, addTask, editTaskListTitle, updateTaskStatus} = useContext(TaskListContext);
     const [modalOpen, setOpen] = useState(false);
     const [editingTitle, setEditingTitle] = useState(false);
     const [taskContent, setTaskContent] = useState("");
     const [taskTitle, setTaskTitle] = useState('');
     const [newContent, setNewContent] = useState('');
+    
 
 
     useEffect(() => {
@@ -68,6 +69,8 @@ function TasksPage(props: any) {
     const handleBackButton = () => {
         props.history.push({ pathname: `/`, })
     }
+
+
 
     return (
         <>
@@ -128,6 +131,7 @@ function TasksPage(props: any) {
                     return (
                         <>
                             <ListItem key={index} index={index} item={item} />
+                            
                         </>)
                 })}
             </div>
