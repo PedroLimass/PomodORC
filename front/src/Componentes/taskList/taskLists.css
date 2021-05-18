@@ -38,6 +38,25 @@ p {
 .c {
     cursor: pointer;
     text-decoration: none;
+    display: flex;
+    flex-direction: column;
+}
+.c div{
+    display: flex;
+    justify-content: center;
+}
+.c div:first-child{
+    display: flex;
+    justify-content: flex-end;
+}
+.c div .delete img{
+    height: 20px;
+    width: 20px;
+}
+.c div .delete{
+    height: 20px;
+    width: 20px;
+    background-color: red;
 }
 .textLink {
     text-decoration: none;

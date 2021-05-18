@@ -12,7 +12,7 @@ function HomePage(props: any) {
     const [modalOpen, setOpen] = useState(false);
     const [taskListTitle, setTaskListTitle] = useState("");
     const { user, getUser } = useContext(UserContext);
-    const { taskLists, getTaskLists, createTasklist } = useContext(TaskListContext);
+    const { taskLists, getTaskLists, createTasklist, deleteTaskList } = useContext(TaskListContext);
 
 
 
@@ -21,7 +21,7 @@ function HomePage(props: any) {
             getUser();
         }
         getTaskLists();
-    }, [createTasklist])
+    }, [createTasklist, deleteTaskList])
 
 
 
@@ -97,7 +97,18 @@ function HomePage(props: any) {
         </button>
                 </Modal>
                 <div className="card">
-                    {taskLists.map((element) => (<TaskLists key={element._id} taskList={element} onClick={() => { handleListClick(element._id) }}></TaskLists>))}
+                    {taskLists.map((element) => ( 
+                        <TaskLists 
+                            key={element._id} 
+                            taskList={element} 
+                            onClick={() => { handleListClick(element._id) }}
+                            deleteClick={() => {
+                              deleteTaskList(element._id) 
+                            }}
+                        >  
+                        </TaskLists>
+                        )
+                    )}
                 </div>
             </div>
         </section>
