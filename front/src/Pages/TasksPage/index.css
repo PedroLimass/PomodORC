@@ -47,17 +47,17 @@
   height: 50px;
   border-radius: 15px;
   cursor: pointer;
-  margin: 26px 10px 0px 4px;
+  margin: 13px 10px 0px 3px;
   outline: none;
   cursor: pointer;
 }
 
 .criarTarefa {
   background-color: #a5b9ff;
-  border: 2px solid #000000;
+  border: none;
+  border-radius: none;
   width: 50px;
   height: 30px;
-  border-radius: 10px;
   cursor: pointer;
   margin: 22px 0px 0px 0px;
   outline: none;
@@ -141,11 +141,11 @@
 .novaTarefa {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   background-color: #a5b9ff;
   color: #000000;
-  width: 500px;
-  height: 400px;
+  width: 400px;
+  height: 150px;
   border: #a5b9ff;
   border-radius: 15px;
   padding: 14px;
@@ -156,11 +156,22 @@
 }
 
 .novaTarefa button img {
-  height: 2em;
+  height: 2.3em;
 }
 
-.alinharM {
+.alinhar {
+  flex-direction: column;
+}
+
+.tituloModal {
   display: flex;
-  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
   justify-content: center;
+  align-items: flex-start;
+}
+
+.linear {
+  display: flex;
+  width: 100%;
 }

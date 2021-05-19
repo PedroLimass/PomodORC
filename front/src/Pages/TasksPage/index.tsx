@@ -143,35 +143,41 @@ function TasksPage(props: any) {
           <img src={addbtn} alt="create button" />
         </button>
       </section>
-      <div className="alinharM">
+      <div>
         <Modal
           isOpen={modalOpen}
           contentLabel="New Tasks Modal"
           className="novaTarefa"
         >
-          <h2>Adicionar tarefas</h2>
-          <form>
-            <div>
-              <label>Nome</label>
-              <input
-                className="criarT"
-                value={taskContent}
-                onChange={handleChangeInput}
-                name="newTaskContent"
-              />
+          <div className="alinhar">
+            <div className="tituloModal">
+              <h2>Adicionar tarefas</h2>
             </div>
-          </form>
-          <button onClick={handleCriarInput} className="criarTarefa">
-            Criar
-          </button>
-          <button
-            onClick={() => {
-              setOpen(false);
-            }}
-            className="closeTarefa"
-          >
-            <img src={close} alt="Close button" />
-          </button>
+            <div className="linear">
+              <form>
+                <div>
+                  <label>Nome</label>
+                  <input
+                    className="criarT"
+                    value={taskContent}
+                    onChange={handleChangeInput}
+                    name="newTaskContent"
+                  />
+                </div>
+              </form>
+              <button onClick={handleCriarInput} className="criarTarefa">
+                <img src={saveIcon} alt="Save button" />
+              </button>
+              <button
+                onClick={() => {
+                  setOpen(false);
+                }}
+                className="closeTarefa"
+              >
+                <img src={close} alt="Close button" />
+              </button>
+            </div>
+          </div>
         </Modal>
       </div>
 

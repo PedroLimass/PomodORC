@@ -83,29 +83,35 @@ function HomePage(props: any) {
           contentLabel="New Tasks Modal"
           className="novaLista"
         >
-          <h2>Adicionar lista de tarefas</h2>
-          <form>
-            <div>
-              <label>Nome</label>
-              <input
-                className="nomeTarefa"
-                value={taskListTitle}
-                onChange={handleChange}
-                name="taskListTitle"
-              />
+          <div className="alinhar">
+            <div className="tituloModal">
+              <h2>Adicionar lista de tarefas</h2>
             </div>
-          </form>
-          <button onClick={handleSave} className="salvarLista">
-            <img src={saveIcon} alt="Save button" />
-          </button>
-          <button
-            onClick={() => {
-              setOpen(false);
-            }}
-            className="fecharNovaLista"
-          >
-            <img src={close} alt="Close button" />
-          </button>
+            <div className="linear">
+              <form>
+                <div>
+                  <label>Nome</label>
+                  <input
+                    className="nomeTarefa"
+                    value={taskListTitle}
+                    onChange={handleChange}
+                    name="taskListTitle"
+                  />
+                </div>
+              </form>
+              <button onClick={handleSave} className="salvarLista">
+                <img src={saveIcon} alt="Save button" />
+              </button>
+              <button
+                onClick={() => {
+                  setOpen(false);
+                }}
+                className="fecharNovaLista"
+              >
+                <img src={close} alt="Close button" />
+              </button>
+            </div>
+          </div>
         </Modal>
         <div className="card">
           {taskLists.map((element) => (

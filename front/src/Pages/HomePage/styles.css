@@ -19,7 +19,7 @@
   background-color: #26242d;
   border: 1px solid #4e466a;
   width: 90px;
-  height: 60px;
+  height: 65px;
   border-radius: 12%;
   display: flex;
   align-items: center;
@@ -34,15 +34,11 @@
   width: 50px;
   height: 50px;
   border-radius: 15px;
-  margin-right: 4px;
+  margin-right: 2px;
   cursor: pointer;
-  margin-top: 30px;
+  margin-top: 15px;
   outline: none;
   cursor: pointer;
-}
-
-.novaLista button img {
-  height: 2em;
 }
 
 .novaLista button img {
@@ -56,7 +52,7 @@
   height: 50px;
   border-radius: 15px;
   cursor: pointer;
-  margin: 28px 10px 0px 4px;
+  margin: 15px 5px 0px 2px;
   outline: none;
   cursor: pointer;
 }
@@ -81,8 +77,8 @@
   align-items: center;
   background-color: #a5b9ff;
   color: #000000;
-  width: 500px;
-  height: 400px;
+  width: 400px;
+  height: 150px;
   border: #a5b9ff;
   border-radius: 15px;
   padding: 14px;
@@ -100,6 +96,23 @@
   row-gap: 45px;
   outline: none;
   cursor: pointer;
+}
+
+.alinhar {
+  flex-direction: column;
+}
+
+.tituloModal {
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.linear {
+  display: flex;
+  width: 100%;
 }
 
 /* .a {
