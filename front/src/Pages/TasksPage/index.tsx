@@ -11,9 +11,7 @@ import addbtn from "../../assets/Addbtn.png";
 import returnbtn from "../../assets/Return.svg";
 import iconPencil from "../../assets/iconPencil.png";
 import saveIcon from "../../assets/saveIcon.png";
-
 import "./index.css";
-
 import ListItem from "../../Componentes/listItem/listItem";
 
 function TasksPage(props: any) {
@@ -29,7 +27,7 @@ function TasksPage(props: any) {
   const [editingTitle, setEditingTitle] = useState(false);
   const [taskContent, setTaskContent] = useState("");
   const [taskTitle, setTaskTitle] = useState("");
-  const [newContent, setNewContent] = useState("");
+  // const [newContent, setNewContent] = useState("");
 
   useEffect(() => {
     readTaskList(id);
@@ -181,21 +179,11 @@ function TasksPage(props: any) {
         </Modal>
       </div>
 
-      {/* <form className='form'>
-                <input type="text" name='taskAdd' value={inputValue} onChange={handleChangeInput} />
-                <button onClick={handleSaveInput}><img src={Addbtn} alt="Add button" /></button>
-            </form> */}
-
       <div className="list">
         {taskList.tasks &&
           taskList.tasks.map((item: Task, index: number) => {
             return (
               <>
-                {/* <div key={index} className="item">
-                                <input type="checkbox" name='status' checked={item.status} onChange={() => { handleCheckBox(index) }} />
-                                <label htmlFor="status">{item.content}</label>
-
-                            </div> */}
                 <ListItem key={index} index={index} item={item} />
               </>
             );
