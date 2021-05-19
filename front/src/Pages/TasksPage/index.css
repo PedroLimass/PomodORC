@@ -1,6 +1,6 @@
 .editar {
   background-color: #a5b9ff;
-  border: 0;
+  border: #a5b9ff;
   width: 50px;
   height: 45px;
   border-radius: 13px;
@@ -11,7 +11,7 @@
 }
 
 .editarTitulo {
-  border: 0;
+  border: #a5b9ff;
   border-radius: 15px;
   width: 200px;
   height: 40px;
@@ -30,7 +30,7 @@
 
 .adicionarTarefa {
   background-color: #a5b9ff;
-  border: 0;
+  border: #a5b9ff;
   width: 50px;
   height: 50px;
   border-radius: 15px;
@@ -42,7 +42,7 @@
 
 .closeTarefa {
   background-color: #a5b9ff;
-  border: 0;
+  border: #a5b9ff;
   width: 50px;
   height: 50px;
   border-radius: 15px;
@@ -54,7 +54,7 @@
 
 .criarTarefa {
   background-color: #a5b9ff;
-  border: none;
+  border: #a5b9ff;
   border-radius: none;
   width: 50px;
   height: 30px;
@@ -67,7 +67,7 @@
 
 .salvar {
   background-color: #a5b9ff;
-  border: 0;
+  border: #a5b9ff;
   width: 50px;
   height: 50px;
   border-radius: 15px;
@@ -100,12 +100,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: black;
+  color: #ffffff;
   margin-top: 12px;
 }
 
+.titulo h2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  margin-right: 4px;
+}
+
 .criarT {
-  border: 0;
+  border: #a5b9ff;
   border-radius: 10px;
   width: 200px;
   height: 20px;
