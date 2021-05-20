@@ -1,15 +1,20 @@
 import { createContext, ReactNode, useContext, useEffect, useState } from "react";
-
+import { TaskListContext } from './taskListContext'
 interface PomodoroContextData {
     minutes: number;
     seconds: number;
     hasFinished: boolean;
     isActive: boolean;
+    isBreakout: boolean;
+    time:number;
+    taskTime:number;
     pausePomodoro: () => void;
     startPomodoro: () => void;
     resetPomodoro: () => void;
     breakTimePomodoro: () => void;
     newTime: (time: number) => void;
+    changeTaskListId: (id: string) => void;
+    changeTaskIndex: (index: number) => void;
 }
 
 interface PomodoroProviderProps {
@@ -21,14 +26,20 @@ export const PomodoroContext = createContext({} as PomodoroContextData);
 let countdownTimeout: NodeJS.Timeout;
 
 export function PomodoroProvider({ children }: PomodoroProviderProps) {
-
-
-    const [time, setTime] = useState(20 * 60);
+    const breakoutTime = 0.05 * 60;
+    const taskTime = 0.1 * 60;
+    const [time, setTime] = useState(taskTime);
     const [isActive, setIsActive] = useState(false);
     const [hasFinished, setHasFinished] = useState(false);
-
+    const [isBreakout, setIsBreakout] = useState(false);
+    const [taskListId, setTaskListId] = useState('');
+    const [taskIndex, setTaskIndex] = useState(-1);
+    const { addTaskTime } = useContext(TaskListContext);
     const minutes = Math.floor(time / 60);
     const seconds = time % 60;
+
+    function changeTaskListId(id: string) { setTaskListId(id); }
+    function changeTaskIndex(index: number) { setTaskIndex(index); }
 
     function pausePomodoro() {
         clearTimeout(countdownTimeout);
@@ -44,15 +55,19 @@ export function PomodoroProvider({ children }: PomodoroProviderProps) {
         clearTimeout(countdownTimeout);
         setIsActive(false);
         setHasFinished(false);
-        setTime(20 * 60);
+        setTime(taskTime);
+        setIsBreakout(false);
+
     }
 
     function breakTimePomodoro() {
         clearTimeout(countdownTimeout);
         setIsActive(false);
-        setHasFinished(false);
-        setTime(5 * 60);
-        setIsActive(true);
+        setHasFinished(true);
+        setTime(breakoutTime);
+        setIsActive(false);
+        setIsBreakout(true);
+
     }
 
     useEffect(() => {
@@ -62,11 +77,24 @@ export function PomodoroProvider({ children }: PomodoroProviderProps) {
             }, 1000)
         }
         else if (isActive && time === 0) {
-            setHasFinished(true);
-            setIsActive(false);
-            // startNewChallenge();
+            if (isBreakout) {
+                // setHasFinished(false);
+                // setIsActive(false);
+                // setIsBreakout(false);
+                // console.log("resetou")
+                resetPomodoro();
+
+            } else {
+                addTaskTime(taskIndex, taskTime - time, taskListId);
+                // console.log("descanso")
+                breakTimePomodoro();
+            }
+
         }
     }, [isActive, time])
+
+
+
 
     function newTime(time: number) {
         setTime(time * 60);
@@ -78,11 +106,16 @@ export function PomodoroProvider({ children }: PomodoroProviderProps) {
             seconds,
             hasFinished,
             isActive,
+            isBreakout,
+            time,
+            taskTime,
             pausePomodoro,
             startPomodoro,
             breakTimePomodoro,
             resetPomodoro,
             newTime,
+            changeTaskListId,
+            changeTaskIndex
         }}>
             {children}
         </PomodoroContext.Provider>

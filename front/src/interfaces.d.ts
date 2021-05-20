@@ -2,7 +2,8 @@
 interface Task {
 
     content: string,
-    status: boolean
+    status: boolean,
+    time: number
 
 }
 interface TaskList {
