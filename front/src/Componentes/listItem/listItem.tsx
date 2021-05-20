@@ -16,11 +16,14 @@ function ListItem(props: any) {
     const [openModal, setOpenModal] = useState(false);
     const [taskContent, setTaskContent] = useState("");
     const [editingContent, setEditingContent] = useState(false);
+    const [editingTime, setEditingTime] = useState(false);
+    const [newTimeModifier, setNewTimeModifier] = useState(0);
     const {
         taskList,
         updateTaskStatus,
         updateTask,
-        deleteTask
+        deleteTask,
+        setTaskTime,
     } = useContext(TaskListContext);
 
     const { changeTaskIndex, changeTaskListId } = useContext(PomodoroContext);
@@ -53,6 +56,15 @@ function ListItem(props: any) {
         deleteTask(taskList._id, index);
     };
 
+    const handleSaveNewTime = () => {
+        setTaskTime(index, item.time + newTimeModifier, id);
+        setEditingTime(false);
+        setNewTimeModifier(0);
+    }
+    const handlerSubtractModifier = () => {
+        if (item.time + newTimeModifier > 0)
+            setNewTimeModifier(newTimeModifier - 1)
+    }
     return (
         <div className="item2">
             <input
@@ -100,7 +112,23 @@ function ListItem(props: any) {
                 <div className="task2">
                     <label htmlFor="status">
                         <p>{item.content} </p>
-                        <div className='time'>Total: {item.time} min.</div>
+
+                        <div className='time'>
+                            {/* Total: {item.time} min. */}
+                        </div>
+                        {editingTime ? (<div className='time'>
+                            {`Total: ${item.time + newTimeModifier} min.`}
+                            <button onClick={() => { setNewTimeModifier(newTimeModifier + 1) }}>+</button>
+                            <button onClick={() => { handlerSubtractModifier() }}> -- </button>
+                            <button onClick={() => { handleSaveNewTime() }}>fechar</button>
+                        </div>
+                        ) : (
+                            <div className='time'> Total: {item.time} min.
+                                <button onClick={() => { setEditingTime(true) }}>
+                                    editar
+                                </button>
+                            </div>)}
+
                     </label>
 
                     <button

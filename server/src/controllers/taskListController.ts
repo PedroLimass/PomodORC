@@ -201,6 +201,28 @@ module.exports = {
             return res.status(400).send({ error: err.message });
         }
 
+    },
+
+    async setTaskTime(req: Request, res: Response) {
+        const { id } = req.params;
+        const { index, time } = req.body;
+        try {
+            const taskList = await TaskList.findOne({ _id: id });
+
+            if (!taskList) {
+                return res.status(404).send({ error: 'TaskList not found' });
+            }
+
+            let tasks = taskList.tasks;
+            tasks[index].time = time;
+
+            const response = await taskList.updateOne({ tasks: tasks });
+
+            return res.status(200).send({ response });
+
+        } catch (err) {
+            return res.status(400).send({ error: err.message });
+        }
     }
 
 
