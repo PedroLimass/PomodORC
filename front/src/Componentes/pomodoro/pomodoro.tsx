@@ -43,7 +43,7 @@ function Pomodoro(props: any) {
                         resetPomodoro()
                         setOpen(false);
                         if (!isBreakout) {
-                            addTaskTime(index, taskTime - time, id);
+                            addTaskTime(index, Math.floor((taskTime - time) / 60), id);
                         }
                     }} className="closeB"><img src={close} alt="Close button" className="closeIcon" /></button></div>
                 <div className="Titulo"><p>{content}</p></div>
@@ -61,7 +61,7 @@ function Pomodoro(props: any) {
                             <button onClick={() => {
                                 resetPomodoro();
                                 if (!isBreakout) {
-                                    addTaskTime(index, taskTime - time, id);
+                                    addTaskTime(index, Math.floor((taskTime - time) / 60), id);
                                 }
                             }}
                                 className="Button">
@@ -81,7 +81,7 @@ function Pomodoro(props: any) {
                             <button onClick={() => {
                                 resetPomodoro();
                                 if (!isBreakout) {
-                                    addTaskTime(index, taskTime - time, id);
+                                    addTaskTime(index, Math.floor((taskTime - time) / 60), id);
                                 }
                             }}
                                 className="Button">

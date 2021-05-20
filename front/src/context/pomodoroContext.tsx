@@ -6,8 +6,8 @@ interface PomodoroContextData {
     hasFinished: boolean;
     isActive: boolean;
     isBreakout: boolean;
-    time:number;
-    taskTime:number;
+    time: number;
+    taskTime: number;
     pausePomodoro: () => void;
     startPomodoro: () => void;
     resetPomodoro: () => void;
@@ -26,8 +26,8 @@ export const PomodoroContext = createContext({} as PomodoroContextData);
 let countdownTimeout: NodeJS.Timeout;
 
 export function PomodoroProvider({ children }: PomodoroProviderProps) {
-    const breakoutTime = 0.05 * 60;
-    const taskTime = 0.1 * 60;
+    const breakoutTime = 5 * 60;
+    const taskTime = 25 * 60;
     const [time, setTime] = useState(taskTime);
     const [isActive, setIsActive] = useState(false);
     const [hasFinished, setHasFinished] = useState(false);
@@ -85,7 +85,7 @@ export function PomodoroProvider({ children }: PomodoroProviderProps) {
                 resetPomodoro();
 
             } else {
-                addTaskTime(taskIndex, taskTime - time, taskListId);
+                addTaskTime(taskIndex, Math.floor((taskTime - time) / 60), taskListId);
                 // console.log("descanso")
                 breakTimePomodoro();
             }
