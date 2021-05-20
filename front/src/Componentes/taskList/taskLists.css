@@ -1,127 +1,109 @@
 @import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
 .taskListModal {
-    margin: auto;
-    margin-top: 2.5rem;
-    align-content: center;
-    max-width: 665px;
-    height: 840px;
-    background-color: #A5B9FF;
-    border-radius: 25px;
-    overflow: scroll;
-    overflow-x: hidden;
-    overflow: -moz-scrollbars-none;
-    box-shadow: 0 0 0 0;
-    outline: 0;
+  margin: auto;
+  margin-top: 2.5rem;
+  align-content: center;
+  max-width: 665px;
+  height: 840px;
+  background-color: #a5b9ff;
+  border-radius: 25px;
+  overflow: scroll;
+  overflow-x: hidden;
+  overflow: -moz-scrollbars-none;
+  box-shadow: 0 0 0 0;
+  outline: 0;
 }
 
 .taskListModal::-webkit-scrollbar {
-    width: 0 !important
+  width: 0 !important;
 }
 
-input[type=checkbox] {
-    transform: scale(4);
-    margin-right: 30px;
-    cursor:pointer;
-
+input[type="checkbox"] {
+  transform: scale(4);
+  margin-right: 30px;
+  cursor: pointer;
 }
 
 .item {
-    font-size: 56px;
-    font-family: "Lobster", cursive;
-    font-weight: 400;
+  font-size: 56px;
+  font-family: "Lobster", cursive;
+  font-weight: 400;
 }
 
 p {
-    color:#000000
+  color: #000000;
+  font-family: "Lobster", cursive;
 }
 
 .c {
-    cursor: pointer;
-    text-decoration: none;
-    display: flex;
-    flex-direction: column;
-}
-.c div{
-    display: flex;
-    justify-content: center;
-}
-.c div:first-child{
-    display: flex;
-    justify-content: flex-end;
-}
-.c div .delete img{
-    height: 20px;
-    width: 20px;
-}
-.c div .delete{
-    height: 20px;
-    width: 20px;
-    background-color: red;
+  cursor: pointer;
+  text-decoration: none;
+  outline: none;
+  cursor: pointer;
 }
 .textLink {
-    text-decoration: none;
+  text-decoration: none;
 }
 
-
 .item {
-    margin-left: 70px;
-    width: fit-content;
-    height: fit-content;
-    word-break: break-all;
+  margin-left: 70px;
+  width: fit-content;
+  height: fit-content;
+  word-break: break-all;
 }
 
 .list {
-    margin-bottom: 2rem;
+  margin-bottom: 2rem;
 }
 
 .top {
-    justify-content: center;
-    display: flex;
-    align-items: start;
+  justify-content: space-between;
+  display: flex;
+  align-items: start;
 }
-
+/* 
 .top button {
-    background-color: #A5B9FF;
-    border: 0;
-    border-radius: 25px;
-    cursor: pointer;
-    margin-top: 30px;
-}
+  background-color: #a5b9ff;
+  border: 0;
+  min-width: 30px;
+  min-height: 30px;
+  border-radius: 25px;
+  cursor: pointer;
+  margin-top: 30px;
+} */
 
 .top button img {
-    height: 2em;
+  height: 2em;
 }
 
 .top h2 {
-    width: 75%;
-    font-size: 62px;
-    text-align: center;
-    margin-left: 5rem;
-    word-wrap: break-word;
-    margin-bottom: 30px;
-    font-family: "Lobster", cursive;
-    font-weight: 400;
+  width: 75%;
+  font-size: 62px;
+  text-align: center;
+  margin-left: 5rem;
+  word-wrap: break-word;
+  margin-bottom: 30px;
+  font-family: "Lobster", cursive;
+  font-weight: 400;
 }
 
 .form {
-    display: flex;
-    width: fit-content;
-    height: fit-content;
-    margin-right: auto;
-    margin-left: auto;
-    margin-bottom: 15px;
+  display: flex;
+  width: fit-content;
+  height: fit-content;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 15px;
 }
 
-
-
 .form button {
-    cursor:pointer;
-    margin-left: 0.5rem;
-    background-color: #A5B9FF;
-    border: 0;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  background-color: #a5b9ff;
+  border: 0;
 }
 
 .form button img {
-    background-color: #A5B9FF;
-    height: 1.5rem;
+  background-color: #a5b9ff;
+  height: 1.5rem;
 }

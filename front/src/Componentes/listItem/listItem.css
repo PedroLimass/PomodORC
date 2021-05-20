@@ -1,0 +1,77 @@
+.iconPencil {
+  height: 1.5em;
+  background-color: #a5b9ff;
+  outline: none;
+  cursor: pointer;
+}
+
+.saveIcon {
+  height: 2em;
+  background-color: #a5b9ff;
+  outline: none;
+  cursor: pointer;
+}
+
+.deleteIcon {
+  height: 1.5em;
+  background-color: #a5b9ff;
+  outline: none;
+  cursor: pointer;
+}
+
+.newContent {
+  border: 0;
+  border-radius: 13px;
+  width: 200px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  text-align: start;
+  cursor: pointer;
+  outline: none;
+  padding: 4px;
+  margin-right: 8px;
+}
+
+.closeIcon {
+  height: 2em;
+  background-color: #a5b9ff;
+}
+
+.editarTask {
+  background-color: #a5b9ff;
+  border-radius: 15px;
+  border: #a5b9ff;
+  width: 40px;
+  height: 40px;
+  margin-left: 6px;
+  margin-right: 5px;
+  outline: none;
+  cursor: pointer;
+}
+
+.task2 {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 2px;
+}
+
+.task2 p {
+  font-size: 40px;
+  margin-right: 13px;
+}
+
+.check {
+  margin-left: 70px;
+  height: 8px;
+}
+
+.item2 {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 30px;
+  margin-top: 20px;
+  width: 100%;
+}
