@@ -123,13 +123,15 @@ function HomePage(props: any) {
                 handleListClick(element._id);
               }}
             ></TaskLists>
+            <div className="aligned">
             <div className='deleteButton'> 
-            <button className='delete'onClick={() =>{
+            <button className='deleteButton'onClick={() =>{
                 return deleteTaskList(element._id)
             }}>
                 <img src="./delete.png" alt="" />   
             </button>
         </div> 
+        </div>
         </div>
           ))}
        </div> 

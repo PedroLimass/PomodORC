@@ -185,19 +185,25 @@ body {
   background-color: #26242d;
 }
 .deleteButton img{
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   background-color: #a5b9ff;
   
 }
 .orgButton{
   display: flex;
   flex-direction: row;
+  margin-left: 10px;
   
 }
-/**.deleteButton delete{
-  width: 20px;
-  height: 20px;
- background-color: #a5b9ff;
+.deleteButton {
+  width: 18px;
+  height: 18px;
+  background-color: #a5b9ff;
+  border: 0;
+  padding: 1px;
+  border-radius: 5px;
 }
-*/
+.aligned {
+  margin-left: 3px;
+}
