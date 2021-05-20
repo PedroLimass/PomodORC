@@ -1,0 +1,106 @@
+.Button{
+  background-color: #a5b9ff;
+  border-radius: 15px;
+  border: #a5b9ff;
+  width: 40px;
+  height: 40px;
+  margin-left: 6px;
+  margin-right: 5px;
+  outline: none;
+  cursor: pointer;
+}
+
+.closeB{
+    background-color: #a5b9ff;
+    border-radius: 15px;
+    border: #a5b9ff;
+    width: 40px;
+    height: 40px;
+    margin-left: 6px;
+    margin-right: 5px;
+    outline: none;
+    cursor: pointer;
+}
+
+.botoes{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.timer{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.timer p{
+font-size: 30px;
+font-family: 'KoHo', sans-serif;
+}
+
+.closeIcon{
+  height: 2em;
+  background-color: #a5b9ff;
+}
+
+.pauseIcon{
+    height: 2em;
+    background-color: #a5b9ff;
+}
+
+.resetIcon{
+    height: 1.5em;
+    background-color: #a5b9ff;
+}
+
+.sleep{
+    height: 2em;
+    background-color: #a5b9ff;
+}
+
+.play{
+    height: 2em;
+    background-color: #a5b9ff;
+}
+
+.pomo{
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+}
+
+.modalTimer{
+    display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: #a5b9ff;
+  color: #000000;
+  width: 300px;
+  height: 230px;
+  border: #a5b9ff;
+  border-radius: 15px;
+  padding: 14px;
+  margin-top: 32.6797385620915vh;
+  margin-left: 84.9673202614379vh;
+  outline: none;
+  cursor: pointer;
+}
+
+.fechar{
+    width:100%;
+    display:flex;
+    justify-content: flex-end;
+}
+
+.Titulo{
+    margin-top: 5px;
+}
+
+.Titulo p{
+    font-size: 25px;
+}

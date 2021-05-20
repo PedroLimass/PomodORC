@@ -1,8 +1,8 @@
 import React, {
-  BaseSyntheticEvent,
-  useEffect,
-  useState,
-  useContext,
+    BaseSyntheticEvent,
+    useEffect,
+    useState,
+    useContext,
 } from "react";
 import Modal from "react-modal";
 import close from "../../assets/close.png";
@@ -14,119 +14,119 @@ import saveIcon from "../../assets/saveIcon.png";
 import "./styles.css";
 
 function HomePage(props: any) {
-  const [modalOpen, setOpen] = useState(false);
-  const [taskListTitle, setTaskListTitle] = useState("");
-  const { user, getUser } = useContext(UserContext);
-  const { taskLists, getTaskLists, createTasklist } =
-    useContext(TaskListContext);
+    const [modalOpen, setOpen] = useState(false);
+    const [taskListTitle, setTaskListTitle] = useState("");
+    const { user, getUser } = useContext(UserContext);
+    const { taskLists, getTaskLists, createTasklist } =
+        useContext(TaskListContext);
 
-  useEffect(() => {
-    if (user.name === "temp") {
-      getUser();
-    }
-    getTaskLists();
-  }, [createTasklist]);
+    useEffect(() => {
+        if (user.name === "temp") {
+            getUser();
+        }
+        getTaskLists();
+    }, [createTasklist]);
 
-  const handleChange = (e: BaseSyntheticEvent) => {
-    const { name, value } = e.target;
-    if (name === "taskListTitle") {
-      setTaskListTitle(value);
-    } else {
-    }
-  };
-
-  const save = (taskListObject: any) => {
-    createTasklist(taskListObject);
-
-    setOpen(false);
-    setTaskListTitle("");
-  };
-
-  const handleSave = () => {
-    let taskListObj: TaskList = {
-      title: taskListTitle,
-      tasks: [] as Task[],
-      _id: "Batata",
-      user: user.email,
+    const handleChange = (e: BaseSyntheticEvent) => {
+        const { name, value } = e.target;
+        if (name === "taskListTitle") {
+            setTaskListTitle(value);
+        } else {
+        }
     };
-    save(taskListObj);
-    getUser();
-  };
 
-  const handleListClick = (id: string) => {
-    props.history.push({
-      pathname: `/tasks/${id}`,
-      state: id,
-    });
-  };
+    const save = (taskListObject: any) => {
+        createTasklist(taskListObject);
 
-  return (
-    <section className="task">
-      <div className="t">
-        <div>
-          <h1 className="titulo">Pomod'Orc</h1>
-        </div>
-        <div>
-          <button
-            onClick={() => {
-              setOpen(true);
-            }}
-            className="adicionarLista"
-          >
-            <img src={create} alt="create button" />
-          </button>
-        </div>
-      </div>
-      <div>
-        <Modal
-          isOpen={modalOpen}
-          contentLabel="New Tasks Modal"
-          className="novaLista"
-        >
-          <div className="alinhar">
-            <div className="tituloModal">
-              <h2>Adicionar lista de tarefas</h2>
-            </div>
-            <div className="linear">
-              <form>
-                <div>
-                  <label>Nome</label>
-                  <input
-                    className="nomeTarefa"
-                    value={taskListTitle}
-                    onChange={handleChange}
-                    name="taskListTitle"
-                  />
+        setOpen(false);
+        setTaskListTitle("");
+    };
+
+    const handleSave = () => {
+        let taskListObj: TaskList = {
+            title: taskListTitle,
+            tasks: [] as Task[],
+            _id: "Batata",
+            user: user.email,
+        };
+        save(taskListObj);
+        getUser();
+    };
+
+    const handleListClick = (id: string) => {
+        props.history.push({
+            pathname: `/tasks/${id}`,
+            state: id,
+        });
+    };
+
+    return (
+        <section className="task">
+            <div className="t">
+                <div className="titulo">
+                    <p>Pomod'Orc</p>
                 </div>
-              </form>
-              <button onClick={handleSave} className="salvarLista">
-                <img src={saveIcon} alt="Save button" />
-              </button>
-              <button
-                onClick={() => {
-                  setOpen(false);
-                }}
-                className="fecharNovaLista"
-              >
-                <img src={close} alt="Close button" />
-              </button>
+                <div>
+                    <button
+                        onClick={() => {
+                            setOpen(true);
+                        }}
+                        className="adicionarLista"
+                    >
+                        <img src={create} alt="create button" />
+                    </button>
+                </div>
             </div>
-          </div>
-        </Modal>
-        <div className="card">
-          {taskLists.map((element) => (
-            <TaskLists
-              key={element._id}
-              taskList={element}
-              onClick={() => {
-                handleListClick(element._id);
-              }}
-            ></TaskLists>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
+            <div>
+                <Modal
+                    isOpen={modalOpen}
+                    contentLabel="New Tasks Modal"
+                    className="novaLista"
+                >
+                    <div className="alinhar">
+                        <div className="tituloModal">
+                            <h2>Adicionar lista de tarefas</h2>
+                        </div>
+                        <div className="linear">
+                            <form>
+                                <div>
+                                    <label>Nome</label>
+                                    <input
+                                        className="nomeTarefa"
+                                        value={taskListTitle}
+                                        onChange={handleChange}
+                                        name="taskListTitle"
+                                    />
+                                </div>
+                            </form>
+                            <button onClick={handleSave} className="salvarLista">
+                                <img src={saveIcon} alt="Save button" />
+                            </button>
+                            <button
+                                onClick={() => {
+                                    setOpen(false);
+                                }}
+                                className="fecharNovaLista"
+                            >
+                                <img src={close} alt="Close button" />
+                            </button>
+                        </div>
+                    </div>
+                </Modal>
+                <div className="card">
+                    {taskLists.map((element) => (
+                        <TaskLists
+                            key={element._id}
+                            taskList={element}
+                            onClick={() => {
+                                handleListClick(element._id);
+                            }}
+                        ></TaskLists>
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
 }
 
 export default HomePage;
