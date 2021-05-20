@@ -5,6 +5,10 @@ import close from "../../assets/close.png";
 import timer from "../../assets/iconTimer.png";
 import saveIcon from "../../assets/saveIcon.png";
 import deleteIcon from "../../assets/delete.svg";
+import plus from "../../assets/plus.png"
+import subtract from "../../assets/subtract.png"
+import close15 from "../../assets/close15.png"
+import edit from "../../assets/edit.png"
 import "./listItem.css";
 
 import Pomodoro from '../pomodoro/pomodoro';
@@ -16,7 +20,6 @@ function ListItem(props: any) {
     const [openModal, setOpenModal] = useState(false);
     const [taskContent, setTaskContent] = useState("");
     const [editingContent, setEditingContent] = useState(false);
-    const [editingTime, setEditingTime] = useState(false);
     const [newTimeModifier, setNewTimeModifier] = useState(0);
     const {
         taskList,
@@ -58,7 +61,6 @@ function ListItem(props: any) {
 
     const handleSaveNewTime = () => {
         setTaskTime(index, item.time + newTimeModifier, id);
-        setEditingTime(false);
         setNewTimeModifier(0);
     }
     const handlerSubtractModifier = () => {
@@ -78,6 +80,8 @@ function ListItem(props: any) {
             />
             {editingContent ? (
                 <>
+                <div className="AlinhamentoI">
+                    <div className="Div">
                     <label htmlFor="status">
                         <form>
                             <input
@@ -89,10 +93,13 @@ function ListItem(props: any) {
                                 className="newContent"
                             />
                         </form>
+
                     </label>
+                    
                     <button
                         onClick={() => {
                             handleSaveContent();
+                            handleSaveNewTime();
                         }}
                         className="editarTask"
                     >
@@ -102,11 +109,22 @@ function ListItem(props: any) {
                     <button
                         onClick={() => {
                             clickHandle();
+                            setNewTimeModifier(0);
                         }}
                         className="editarTask"
                     >
                         <img src={close} alt="Close button" className="closeIcon" />
-                    </button>
+                    </button> 
+                    
+                    </div>
+                    <div className='time'>
+                        {`Total: ${item.time + newTimeModifier} min.`}
+                        <button className='timebuttons' onClick={() => { setNewTimeModifier(newTimeModifier + 1) }}>
+                            <img src={plus} alt="Plus button" /></button>
+                        <button className='timebuttons' onClick={() => { handlerSubtractModifier() }}>
+                            <img src={subtract} alt="Subtract button" /></button>
+                    </div>
+                </div>
                 </>
             ) : (
                 <div className="task2">
@@ -114,21 +132,8 @@ function ListItem(props: any) {
                         <p>{item.content} </p>
 
                         <div className='time'>
-                            {/* Total: {item.time} min. */}
+                            Total: {item.time} min.
                         </div>
-                        {editingTime ? (<div className='time'>
-                            {`Total: ${item.time + newTimeModifier} min.`}
-                            <button onClick={() => { setNewTimeModifier(newTimeModifier + 1) }}>+</button>
-                            <button onClick={() => { handlerSubtractModifier() }}> -- </button>
-                            <button onClick={() => { handleSaveNewTime() }}>fechar</button>
-                        </div>
-                        ) : (
-                            <div className='time'> Total: {item.time} min.
-                                <button onClick={() => { setEditingTime(true) }}>
-                                    editar
-                                </button>
-                            </div>)}
-
                     </label>
 
                     <button
@@ -161,9 +166,10 @@ function ListItem(props: any) {
                     </button>
                     <Pomodoro content={item.content} open={openModal} setOpen={setOpenModal} id={id} index={index} />
                 </div>
-            )}
+            )
+            }
             {/* <label htmlFor="status">{item.content}</label> */}
-        </div>
+        </div >
     );
 }
 
