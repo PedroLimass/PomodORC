@@ -71,6 +71,10 @@ export function PomodoroProvider({ children }: PomodoroProviderProps) {
     }
 
     useEffect(() => {
+        Notification.requestPermission();
+    }, [])
+
+    useEffect(() => {
         if (isActive && time > 0) {
             countdownTimeout = setTimeout(() => {
                 setTime(time - 1);
@@ -82,19 +86,51 @@ export function PomodoroProvider({ children }: PomodoroProviderProps) {
                 // setIsActive(false);
                 // setIsBreakout(false);
                 // console.log("resetou")
+                endBreakOutNotification();
                 resetPomodoro();
 
             } else {
+                // if (Notification.permission === 'granted') {
+                //     console.log("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB");
+                //     new Notification('Acabou', { body: 'Bora descansar' });
+                // }
+                endPomoNotification();
                 addTaskTime(taskIndex, Math.floor((taskTime - time) / 60), taskListId);
-                // console.log("descanso")
                 breakTimePomodoro();
             }
 
         }
     }, [isActive, time])
 
+    function endBreakOutNotification() {
+        if (Notification.permission === 'granted') {
+            new Audio('/endBreakout.mp3').play();
 
+            const notification = new Notification('Acabou descanso', {
+                body: 'Bora trabalhar'
+            });
+            notification.onclick = (e) => {
+                e.preventDefault();
+                window.focus();
+                notification.close();
+            }
+        }
+    }
 
+    function endPomoNotification() {
+        if (Notification.permission === 'granted') {
+            new Audio('/endpomo.wav').play();
+
+            const notification = new Notification('Parabens', {
+                body: 'Bora descansar'
+            });
+            notification.onclick = (e) => {
+                e.preventDefault();
+                window.focus();
+                notification.close();
+            }
+        }
+    }
 
     function newTime(time: number) {
         setTime(time * 60);
