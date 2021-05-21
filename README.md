@@ -3,7 +3,7 @@
 O PomodOrc tem como objetivo promover uma aplicação web que solucione o desafio do processo treinee em 2020/02. Essa solução web tem como objetivo a aplicação dos conceitos de to-do list e a metodologia pomodoro. Esse repositorio tem como objetivo 
 
 ## Sprint Review
-Documentor: <a href="https://drive.google.com/file/d/1EfMcoN30Nh07z7mVudl57PlrAxhbE8jg/view?usp=sharing"> Link para o documento!</a> <br>
+Documentor: <a href="https://drive.google.com/file/d/1UC_NQagqwJleJRkp3JSZrnhBskjfdfCW/view?usp=sharing"> Link para o documento!</a> <br>
 Protótipo: <a href="https://www.figma.com/file/CHPEfv8hjCh7eoPbeTqhn7/PomodOrc?node-id=0%3A1"> Link para o protótipo final<a>
 
 ## Time
