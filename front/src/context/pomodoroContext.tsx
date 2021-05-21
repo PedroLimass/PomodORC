@@ -82,24 +82,17 @@ export function PomodoroProvider({ children }: PomodoroProviderProps) {
         }
         else if (isActive && time === 0) {
             if (isBreakout) {
-                // setHasFinished(false);
-                // setIsActive(false);
-                // setIsBreakout(false);
-                // console.log("resetou")
                 endBreakOutNotification();
                 resetPomodoro();
 
             } else {
-                // if (Notification.permission === 'granted') {
-                //     console.log("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB");
-                //     new Notification('Acabou', { body: 'Bora descansar' });
-                // }
                 endPomoNotification();
                 addTaskTime(taskIndex, Math.floor((taskTime - time) / 60), taskListId);
                 breakTimePomodoro();
             }
 
         }
+        // eslint-disable-next-line
     }, [isActive, time])
 
     function endBreakOutNotification() {

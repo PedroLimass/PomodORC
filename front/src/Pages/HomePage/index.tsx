@@ -25,6 +25,7 @@ function HomePage(props: any) {
             getUser();
         }
         getTaskLists();
+        // eslint-disable-next-line
     }, [createTasklist]);
 
     const handleChange = (e: BaseSyntheticEvent) => {

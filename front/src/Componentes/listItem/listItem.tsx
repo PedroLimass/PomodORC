@@ -7,8 +7,8 @@ import saveIcon from "../../assets/saveIcon.png";
 import deleteIcon from "../../assets/delete.svg";
 import plus from "../../assets/plus.png"
 import subtract from "../../assets/subtract.png"
-import close15 from "../../assets/close15.png"
-import edit from "../../assets/edit.png"
+// import close15 from "../../assets/close15.png"
+// import edit from "../../assets/edit.png"
 import "./listItem.css";
 
 import Pomodoro from '../pomodoro/pomodoro';

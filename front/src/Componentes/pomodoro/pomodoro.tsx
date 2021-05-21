@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext } from 'react'
 import Modal from "react-modal";
 import close from "../../assets/close.png";
 import reset from '../../assets/reset1.png';
@@ -26,12 +26,6 @@ function Pomodoro(props: any) {
         breakTimePomodoro } = useContext(PomodoroContext);
     const { addTaskTime } = useContext(TaskListContext);
 
-    // const [minuteLeft, minuteRight] = String(minutes).padStart(2, '0').split('');
-    // const [secondLeft, secondRight] = String(seconds).padStart(2, '0').split('');
-
-    useEffect(() => {
-
-    }, [])
 
     return (
 
@@ -48,7 +42,16 @@ function Pomodoro(props: any) {
                     }} className="closeB"><img src={close} alt="Close button" className="closeIcon" /></button></div>
                 <div className="Titulo"><p>{content}</p></div>
                 <div className="timer">
-                    {seconds < 10 ? (<p>{minutes}:0{seconds}</p>) : <p>{minutes}:{seconds}</p>}
+
+                    {/* {seconds < 10 ? (<p>{minutes}:0{seconds}</p>) : <p>{minutes}:{seconds}</p>} */}
+                    {isBreakout ? (
+
+                        seconds < 10 ? (<p>{minutes}:0{seconds} <img src={sleep} alt="sleep" /> </p>) : <p>{minutes}:{seconds} <img src={sleep} alt="sleep" /> </p>
+
+                    ) : (
+                        seconds < 10 ? (<p>{minutes}:0{seconds}</p>) : <p>{minutes}:{seconds}</p>
+
+                    )}
                 </div>
                 <div className="botoes">
                     {isActive ? (
@@ -68,10 +71,6 @@ function Pomodoro(props: any) {
                                 <img src={reset} alt="Reset button" className="resetIcon" />
                             </button>
 
-                            {/* <button onClick={() => { breakTimePomodoro(); }}
-                                className="Button">
-                                <img src={sleep} alt="Break button" className="sleep" />
-                            </button> */}
                         </>) : (<>
                             <button onClick={() => { startPomodoro(); }}
                                 className="Button">
