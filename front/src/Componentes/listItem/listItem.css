@@ -38,6 +38,11 @@
   background-color: #a5b9ff;
 }
 
+.TimerIcon{
+  height: 1.5em;
+  background-color: #a5b9ff;
+}
+
 .editarTask {
   background-color: #a5b9ff;
   border-radius: 15px;
@@ -60,6 +65,7 @@
 .task2 p {
   font-size: 40px;
   margin-right: 13px;
+  color: #ffffff;
 }
 
 .check {
@@ -74,4 +80,9 @@
   margin-bottom: 30px;
   margin-top: 20px;
   width: 100%;
+}
+
+.time{
+  font-size: small;
+  color: #ffffffb2;
 }

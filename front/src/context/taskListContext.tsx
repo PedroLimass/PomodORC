@@ -10,11 +10,13 @@ interface TaskListContextData {
     createTasklist: (taskList: TaskList) => Promise<void>;
     addTask: (title: string, content: string) => Promise<void>;
     updateTask: (id: string, index: number, content: string) => Promise<void>;
-    updateTaskStatus:(id: string, index: number)=> Promise<void>;
+    updateTaskStatus: (id: string, index: number) => Promise<void>;
     readTaskList: (id: string) => Promise<void>;
     deleteTask: (id: string, index: number) => Promise<void>;
     editTaskListTitle: (id: string, title: string) => Promise<void>;
     deleteTaskList: (id: string) => Promise<void>;
+    addTaskTime: (index:number, time:number,id:string) => Promise<void>;
+
 }
 interface TaskListProviderProps {
 
@@ -136,6 +138,15 @@ export function TaskListProvider({ children }: TaskListProviderProps) {
         
     }
 
+    async function addTaskTime(index:number, time:number, id:string) {
+        try {
+            const response = await api.put(`taskList/task/time/${id}`, { index: index, time: time });
+
+        } catch (err) {
+            console.error({ error: err.message })
+        }
+    }
+
 
     return (
         <TaskListContext.Provider value={{
@@ -145,6 +156,7 @@ export function TaskListProvider({ children }: TaskListProviderProps) {
             createTasklist,
             addTask,
             updateTask,
+            addTaskTime,
             readTaskList,
             deleteTask,
             editTaskListTitle,

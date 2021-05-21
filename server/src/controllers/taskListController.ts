@@ -62,7 +62,7 @@ module.exports = {
                 res.status(400).send({ erro: "Lista de tarefas inexistente" });
             }
 
-            const tasks = [...taskList.tasks, { content: content, status: false }];
+            const tasks = [...taskList.tasks, { content: content, status: false, time: 0 }];
 
             const updatedTaskList = await taskList.updateOne({ tasks: tasks });
 
@@ -133,7 +133,6 @@ module.exports = {
 
         }
 
-
     },
 
     async deleteTask(req: Request, res: Response) {
@@ -168,13 +167,34 @@ module.exports = {
             if (!taskList) {
                 return res.status(404).send({ error: 'TaskList not found' });
             }
-            const response = await taskList.updateOne({title});
+            const response = await taskList.updateOne({ title });
 
             return res.status(200).send({ response });
         } catch (err) {
             return res.status(400).send({ error: err.message });
         }
 
+    },
+    async addTaskTime(req: Request, res: Response) {
+        const { id } = req.params;
+        const { index, time } = req.body;
+        try {
+            const taskList = await TaskList.findOne({ _id: id });
+
+            if (!taskList) {
+                return res.status(404).send({ error: 'TaskList not found' });
+            }
+
+            let tasks = taskList.tasks;
+            tasks[index].time += time;
+
+            const response = await taskList.updateOne({ tasks: tasks });
+
+            return res.status(200).send({ response });
+
+        } catch (err) {
+            return res.status(400).send({ error: err.message });
+        }
 
     },
     async deleteTaskList(req: Request, res: Response){

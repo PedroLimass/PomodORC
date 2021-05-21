@@ -13,5 +13,6 @@ router.put('/task/:id', taskListController.updateTask);
 router.put('/task/status/:id', taskListController.updateStatus);
 router.put('/task/delete/:id', taskListController.deleteTask);
 router.delete('/deleteTaskList/:id', taskListController.deleteTaskList);
+router.put('/task/time/:id', taskListController.addTaskTime);
 
 module.exports = router;

@@ -4,6 +4,13 @@
   font-style: normal;
   font-weight: 400;
   font-size: 72px;
+}
+
+.titulo p {
+  font-family: "Lobster", cursive;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 72px;
   color: #ffffff;
 }
 
@@ -90,6 +97,7 @@
 
 .card {
   display: grid;
+  border: #a5b9ff;
   grid-template-columns: repeat(5, 1fr);
   font-family: "Lobster", cursive;
   column-gap: 45px;

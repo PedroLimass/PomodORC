@@ -5,13 +5,9 @@ function TaskLists(props: any,) {
 
     const taskList: TaskList = props.taskList;
     return (
-        <>
-            <button className='c' onClick={props.onClick}>
-                <div>
-                    <p>{taskList.title}</p>
-                </div>
-            </button>
-        </>
+        <div className="alinharC">
+            <button className='c' onClick={props.onClick}> <p>{taskList.title}</p></button>
+        </div>
     )
 }
 
