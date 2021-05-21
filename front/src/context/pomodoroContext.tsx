@@ -99,8 +99,8 @@ export function PomodoroProvider({ children }: PomodoroProviderProps) {
         if (Notification.permission === 'granted') {
             new Audio('/endBreakout.mp3').play();
 
-            const notification = new Notification('Acabou descanso', {
-                body: 'Bora trabalhar'
+            const notification = new Notification('Acabou descanso!', {
+                body: 'Bora trabalhar 📚'
             });
             notification.onclick = (e) => {
                 e.preventDefault();
@@ -114,8 +114,8 @@ export function PomodoroProvider({ children }: PomodoroProviderProps) {
         if (Notification.permission === 'granted') {
             new Audio('/endpomo.wav').play();
 
-            const notification = new Notification('Parabens', {
-                body: 'Bora descansar'
+            const notification = new Notification('Parabéns!', {
+                body: 'Bora descansar 💤'
             });
             notification.onclick = (e) => {
                 e.preventDefault();
