@@ -103,7 +103,6 @@
   column-gap: 45px;
   row-gap: 45px;
   outline: none;
-  cursor: pointer;
 }
 
 .alinhar {
@@ -196,6 +195,8 @@ body {
   width: 16px;
   height: 16px;
   background-color: #a5b9ff;
+  cursor: pointer;
+
   
 }
 .orgButton{

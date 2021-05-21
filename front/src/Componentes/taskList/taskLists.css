@@ -69,7 +69,7 @@ input[type="checkbox"] {
 .top {
   justify-content: space-between;
   display: flex;
-  align-items: start;
+  /* align-items: start; */
 }
 /* 
 .top button {

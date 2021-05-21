@@ -129,7 +129,7 @@
 .T {
   justify-content: space-between;
   display: flex;
-  align-items: start;
+  /* align-items: start; */
 }
 
 .T h2 {
