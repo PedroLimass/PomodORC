@@ -131,7 +131,7 @@ export function TaskListProvider({ children }: TaskListProviderProps) {
     }
     async function deleteTaskList(id: string) {
         try {
-            const response = await api.delete(`taskList/deleteTaskList/${id}`);
+            await api.delete(`taskList/deleteTaskList/${id}`);
         } catch (error) {
             console.error({ error: error.message })
         }

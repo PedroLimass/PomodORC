@@ -23,7 +23,7 @@ function Pomodoro(props: any) {
         taskTime,
         pausePomodoro,
         resetPomodoro,
-        breakTimePomodoro } = useContext(PomodoroContext);
+    } = useContext(PomodoroContext);
     const { addTaskTime } = useContext(TaskListContext);
 
 

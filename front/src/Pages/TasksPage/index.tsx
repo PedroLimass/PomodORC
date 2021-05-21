@@ -74,9 +74,6 @@ function TasksPage(props: any) {
         }
     };
 
-    const handleCheckBox = (index: number) => {
-        updateTaskStatus(taskList._id, index);
-    };
 
     const handleBackButton = () => {
         props.history.push({ pathname: `/` });
