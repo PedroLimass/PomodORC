@@ -184,7 +184,7 @@ function TasksPage(props: any) {
                     taskList.tasks.map((item: Task, index: number) => {
                         return (
                             <>
-                                <ListItem key={index} index={index} item={item} />
+                                <ListItem key={index} index={index} item={item} id={id} />
                             </>
                         );
                     })}

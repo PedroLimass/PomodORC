@@ -12,7 +12,7 @@ import { PomodoroContext } from '../../context/pomodoroContext';
 
 
 function ListItem(props: any) {
-    const { index, item } = props;
+    const { index, item, id } = props;
     const [openModal, setOpenModal] = useState(false);
     const [taskContent, setTaskContent] = useState("");
     const [editingContent, setEditingContent] = useState(false);
@@ -22,6 +22,8 @@ function ListItem(props: any) {
         updateTask,
         deleteTask
     } = useContext(TaskListContext);
+
+    const { changeTaskIndex, changeTaskListId } = useContext(PomodoroContext);
 
     const handleCheckBox = (index: number) => {
         updateTaskStatus(taskList._id, index);
@@ -84,6 +86,7 @@ function ListItem(props: any) {
                     >
                         <img src={saveIcon} alt="Save button" className="saveIcon" />
                     </button>
+
                     <button
                         onClick={() => {
                             clickHandle();
@@ -96,8 +99,10 @@ function ListItem(props: any) {
             ) : (
                 <div className="task2">
                     <label htmlFor="status">
-                        <p>{item.content}</p>
+                        <p>{item.content} </p>
+                        <div className='time'>Total: {item.time} min.</div>
                     </label>
+
                     <button
                         onClick={() => {
                             clickHandle();
@@ -118,13 +123,15 @@ function ListItem(props: any) {
                         onClick={() => {
                             // changeOpenM();
                             setOpenModal(true);
+                            changeTaskIndex(index);
+                            changeTaskListId(id);
                             // setOpenModal(true);
                         }}
                         className="editarTask"
                     >
                         <img src={timer} alt="Timer button" className="TimerIcon" />
                     </button>
-                    <Pomodoro content={item.content} open={openModal} setOpen={setOpenModal} />
+                    <Pomodoro content={item.content} open={openModal} setOpen={setOpenModal} id={id} index={index} />
                 </div>
             )}
             {/* <label htmlFor="status">{item.content}</label> */}
