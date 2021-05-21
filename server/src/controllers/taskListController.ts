@@ -18,7 +18,8 @@ module.exports = {
                 title,
                 user
             });
-            if (checkTaskList) {
+
+            if(checkTaskList) {
                 return res.status(400).send({ error: "Titulo ja existente" });
             }
 
@@ -65,10 +66,7 @@ module.exports = {
 
             const updatedTaskList = await taskList.updateOne({ tasks: tasks });
 
-            return res.status(200).send({ updatedTaskList });
-
-
-
+        return res.status(200).send({ updatedTaskList });
         } catch (err) {
             res.status(400).send({ erro: err.message });
         }
@@ -87,12 +85,9 @@ module.exports = {
 
             return res.status(200).send({ taskList: tasklists });
 
-
         } catch (err) {
             res.status(400).send({ error: err.message });
-
         }
-
     },
     async updateTask(req: Request, res: Response) {
 
@@ -201,7 +196,18 @@ module.exports = {
             return res.status(400).send({ error: err.message });
         }
 
+    },
+    async deleteTaskList(req: Request, res: Response){
+        const { id } = req.params;
+        try {
+          const taskList = await TaskList.deleteOne({_id: id});
+          if(!taskList){
+              return res.status(400).send({error:'Tasklist not found' });
+          }
+          return res.status(200).send({taskList});
+        }catch(error) {
+            return res.status(400).send({error: error.massage});
+        }
     }
-
 
 }

@@ -12,13 +12,14 @@ import TaskLists from "../../Componentes/taskList/taskLists";
 import create from "../../assets/create.png";
 import saveIcon from "../../assets/saveIcon.png";
 import "./styles.css";
+import deleteImg from "../../assets/delete.svg"
 
 function HomePage(props: any) {
-    const [modalOpen, setOpen] = useState(false);
-    const [taskListTitle, setTaskListTitle] = useState("");
-    const { user, getUser } = useContext(UserContext);
-    const { taskLists, getTaskLists, createTasklist } =
-        useContext(TaskListContext);
+  const [modalOpen, setOpen] = useState(false);
+  const [taskListTitle, setTaskListTitle] = useState("");
+  const { user, getUser } = useContext(UserContext);
+  const { taskLists, getTaskLists, createTasklist, deleteTaskList } =
+    useContext(TaskListContext);
 
     useEffect(() => {
         if (user.name === "temp") {
@@ -112,16 +113,27 @@ function HomePage(props: any) {
                             </button>
                         </div>
                     </div>
-                </Modal>
+                    </Modal>
                 <div className="card">
                     {taskLists.map((element) => (
-                        <TaskLists
-                            key={element._id}
-                            taskList={element}
-                            onClick={() => {
-                                handleListClick(element._id);
-                            }}
-                        ></TaskLists>
+                        <div className="orgButton">
+                            <TaskLists
+                                key={element._id}
+                                taskList={element}
+                                onClick={() => {
+                                    handleListClick(element._id);
+                                }}
+                            />
+                            <div className="aligned">
+                                <div className='deleteButton'> 
+                                    <button className='deleteButton'onClick={() =>{
+                                        return deleteTaskList(element._id)
+                                    }}>
+                                        <img src={deleteImg} alt="delete" />
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     ))}
                 </div>
             </div>
