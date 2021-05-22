@@ -3,12 +3,24 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { UserProvider } from './context/userContext';
+import { TaskListProvider } from './context/taskListContext'
+import { PomodoroProvider } from './context/pomodoroContext'
+
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+    <React.StrictMode>
+        <UserProvider>
+            <TaskListProvider>
+                <PomodoroProvider>
+                    <App />
+                </PomodoroProvider>
+
+            </TaskListProvider>
+        </UserProvider>
+
+    </React.StrictMode>,
+    document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function

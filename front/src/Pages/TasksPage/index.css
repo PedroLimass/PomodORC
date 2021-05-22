@@ -1,0 +1,185 @@
+.editar {
+  background-color: #a5b9ff;
+  border: #a5b9ff;
+  width: 50px;
+  height: 45px;
+  border-radius: 13px;
+  cursor: pointer;
+  padding: 2px;
+  outline: none;
+  cursor: pointer;
+}
+
+.editarTitulo {
+  border: #a5b9ff;
+  border-radius: 15px;
+  width: 200px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  text-align: start;
+  cursor: pointer;
+  padding: 4px;
+  margin-right: 8px;
+  margin-top: 30px;
+}
+
+.editarT {
+  border-radius: 5%;
+}
+
+.adicionarTarefa {
+  background-color: #a5b9ff;
+  border: #a5b9ff;
+  width: 50px;
+  height: 50px;
+  border-radius: 15px;
+  cursor: pointer;
+  margin: 30px 20px 0px 4px;
+  outline: none;
+  cursor: pointer;
+}
+
+.closeTarefa {
+  background-color: #a5b9ff;
+  border: #a5b9ff;
+  width: 50px;
+  height: 50px;
+  border-radius: 15px;
+  cursor: pointer;
+  margin: 13px 10px 0px 3px;
+  outline: none;
+  cursor: pointer;
+}
+
+.criarTarefa {
+  background-color: #a5b9ff;
+  border: #a5b9ff;
+  border-radius: none;
+  width: 50px;
+  height: 30px;
+  cursor: pointer;
+  margin: 22px 0px 0px 0px;
+  outline: none;
+  cursor: pointer;
+  padding: 0px 2px 0px 5px;
+}
+
+.salvar {
+  background-color: #a5b9ff;
+  border: #a5b9ff;
+  width: 50px;
+  height: 50px;
+  border-radius: 15px;
+  margin-right: 4px;
+  cursor: pointer;
+  margin-top: 30px;
+  outline: none;
+  cursor: pointer;
+}
+
+.return {
+  background-color: #26242d;
+  border: #26242d;
+  margin-top: 50px;
+  margin-left: 40px;
+  display: flex;
+  justify-content: right;
+  outline: none;
+  cursor: pointer;
+}
+
+.return button {
+  background-color: #26242d;
+  margin-top: 30px;
+  outline: none;
+  cursor: pointer;
+}
+
+.titulo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  margin-top: 12px;
+}
+
+.titulo h2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  margin-right: 4px;
+}
+
+.criarT {
+  border: #a5b9ff;
+  border-radius: 10px;
+  width: 200px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  text-align: start;
+  cursor: pointer;
+  outline: none;
+  padding: 4px;
+  margin: 5px 10px 0px 0px;
+}
+
+.T {
+  justify-content: space-between;
+  display: flex;
+  /* align-items: start; */
+}
+
+.T h2 {
+  width: 75%;
+  font-size: 62px;
+  text-align: center;
+  word-wrap: break-word;
+  font-family: "Lobster", cursive;
+  font-weight: 300;
+  padding: 8px;
+}
+
+.T button img {
+  height: 2em;
+}
+
+.novaTarefa {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: #a5b9ff;
+  color: #000000;
+  width: 400px;
+  height: 150px;
+  border: #a5b9ff;
+  border-radius: 15px;
+  padding: 14px;
+  margin-top: 140px;
+  margin-left: 400px;
+  outline: none;
+  cursor: pointer;
+}
+
+.novaTarefa button img {
+  height: 2.3em;
+}
+
+.alinhar {
+  flex-direction: column;
+}
+
+.tituloModal {
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.linear {
+  display: flex;
+  width: 100%;
+}

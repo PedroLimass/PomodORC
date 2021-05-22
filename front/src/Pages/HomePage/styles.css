@@ -1,0 +1,218 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+.titulo {
+  font-family: "Lobster", cursive;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 72px;
+}
+
+.titulo p {
+  font-family: "Lobster", cursive;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 72px;
+  color: #ffffff;
+}
+
+.t {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 30vh;
+}
+
+.adicionarLista {
+  background-color: #26242d;
+  border: 1px solid #4e466a;
+  width: 90px;
+  height: 65px;
+  border-radius: 12%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  cursor: pointer;
+}
+
+.salvarLista {
+  background-color: #a5b9ff;
+  border: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 15px;
+  margin-right: 2px;
+  cursor: pointer;
+  margin-top: 15px;
+  outline: none;
+  cursor: pointer;
+}
+
+.novaLista button img {
+  height: 2em;
+}
+
+.fecharNovaLista {
+  background-color: #a5b9ff;
+  border: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 15px;
+  cursor: pointer;
+  margin: 15px 5px 0px 2px;
+  outline: none;
+  cursor: pointer;
+}
+
+.nomeTarefa {
+  border: 0;
+  border-radius: 10px;
+  width: 200px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  text-align: start;
+  cursor: pointer;
+  outline: none;
+  padding: 4px;
+  margin: 5px 10px 0px 0px;
+}
+
+.novaLista {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #a5b9ff;
+  color: #000000;
+  width: 400px;
+  height: 150px;
+  border: #a5b9ff;
+  border-radius: 15px;
+  padding: 14px;
+  margin-top: 140px;
+  margin-left: 400px;
+  outline: none;
+  cursor: pointer;
+}
+
+.card {
+  display: grid;
+  border: #a5b9ff;
+  grid-template-columns: repeat(5, 1fr);
+  font-family: "Lobster", cursive;
+  column-gap: 45px;
+  row-gap: 45px;
+  outline: none;
+}
+
+.alinhar {
+  flex-direction: column;
+}
+
+.tituloModal {
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.linear {
+  display: flex;
+  width: 100%;
+}
+
+/* .a {
+  height: 160px;
+  width: 160px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  padding: 0 0 20px 20px;
+  font-size: 20px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+  background-color: #a5b9ff;
+} */
+
+/* .scroll{
+  overflow: scroll;
+} */
+
+.c {
+  height: 160px;
+  width: 160px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  padding: 0 0 20px 20px;
+  font-size: 20px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+  background-color: #a5b9ff;
+  word-break: break-all;
+}
+
+/* .c p {
+  font-size: 20px;
+  word-wrap: break-word;
+
+} */
+
+/* .b {
+  height: 160px;
+  width: 160px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  padding: 0 0 20px 20px;
+  font-size: 20px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+  background-color: #feb0ff;
+} */
+
+/* .c:nth-child(-n + 5) {
+  background-color: #a5b9ff;
+}
+
+.c:nth-child(n + 6) {
+  background-color: #feb0ff;
+}
+
+.c:nth-child(n + 11) {
+  background-color: #ffffe0;
+} */
+
+.task {
+  padding: 0px 100px 30px 100px;
+}
+
+body {
+  background-color: #26242d;
+}
+.deleteButton img{
+  width: 16px;
+  height: 16px;
+  background-color: #a5b9ff;
+  cursor: pointer;
+
+  
+}
+.orgButton{
+  display: flex;
+  flex-direction: row;
+  margin-left: 10px;
+  
+}
+.deleteButton {
+  width: 18px;
+  height: 18px;
+  background-color: #a5b9ff;
+  border: 0;
+  padding: 1px;
+  border-radius: 5px;
+}
+.aligned {
+  margin-left: 3px;
+}
